@@ -65,8 +65,8 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="index.html">To login</a>
-                <a class="grey-text text-lighten-4 right" href="User.html">To User</a>
+                <a class="grey-text text-lighten-4 right" href="index.php">To login</a>
+                <a class="grey-text text-lighten-4 right" href="User.php">To User</a>
             </div>
         </div>
     </footer>

@@ -70,10 +70,10 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="index.html">To login</a>
-                <a class="grey-text text-lighten-4 right" href="AdminPage.html">To Admin</a>
-                <a class="grey-text text-lighten-4 right" href="IRBDocument.html">To Doc</a>
-                <a class="grey-text text-lighten-4 right" href="Reviewer.html">To Reviewers</a>
+                <a class="grey-text text-lighten-4 right" href="index.php">To login</a>
+                <a class="grey-text text-lighten-4 right" href="AdminPage.php">To Admin</a>
+                <a class="grey-text text-lighten-4 right" href="IRBDocument.php">To Doc</a>
+                <a class="grey-text text-lighten-4 right" href="Reviewer.php">To Reviewers</a>
             </div>
         </div>
     </footer>

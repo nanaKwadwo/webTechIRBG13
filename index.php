@@ -59,7 +59,7 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="AdminPage.html">To Admin</a>
+                <a class="grey-text text-lighten-4 right" href="AdminPage.php">To Admin</a>
                 <a class="grey-text text-lighten-4 right" href="User.php">To User</a>
             </div>
         </div>

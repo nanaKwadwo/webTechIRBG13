@@ -51,7 +51,7 @@
                 <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
-                <li><a class="btn-floating red"><i class="material-icons">add</i></a></li>
+                <li><a class="btn-floating red" href="IRBDocument.php"><i class="material-icons">add</i></a></li>
                 <li><a class="btn-floating yellow darken-1"><i class="material-icons">today</i></a></li>
             </ul>
         </div>

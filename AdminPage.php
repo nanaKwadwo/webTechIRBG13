@@ -55,8 +55,14 @@
             <!-- Modal Structure -->
             <div id="modal1" class="modal bottom-sheet">
                 <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
+                    <h4>Users</h4>
+                    
+                    <?php
+                       $path = $_SERVER['DOCUMENT_ROOT'];
+                       $path .= "/WT_SW Project/pages/controller/admin_controller.php";
+                        include_once($path);  
+                    #getUsers();
+            ?>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>

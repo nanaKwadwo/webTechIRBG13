@@ -2,7 +2,49 @@
 /*
 getApplications, a method that calls a method to get the applications given the reviewer-id of that user
 */
+function getApplications() {
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WT_SW Project/pages/model/applications.php";
+    include_once($path);
+    
+    if (isset($_REQUEST['usercode'])) {
+        $usercode = $_REQUEST['usercode'];
+        $app = new applications($usercode);
+    }else{
+        $app = new applications();
+    }
 
+    
+    $result = $app->getApplications();
+    if ($result == false) {
+        echo "<h4>No applications to display yet</h4>";
+    } else {
+        echo "     
+      <table>
+        <thead>
+          <tr>
+              <th data-field=\"id\">Application Id</th>
+              <th data-field=\"name\"> Application Title</th>
+              <th data-field=\"name\">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+";
+        while ($row = $app->fetch()) {
+            echo "          
+          <tr>
+            <td>{$row['APPLICATION_ID']}</td>
+            <td>{$row['TITLE_OF_PROJECT']}</td>
+            <td><a class=\"waves-effect waves-light btn\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
+          </tr>";
+        }
+        echo "        
+            </tbody>
+           </table>";
+    }
+
+
+}
 /*
 getSchedule, a method that gets the schedule given the reviewer_id of that reviewer
 */

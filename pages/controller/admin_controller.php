@@ -1,5 +1,9 @@
 <?php 
 /*
+getUsers, gives a list of eligible applicants
+*/
+
+/*
 addApplicant, modal to add applicant
 */
 

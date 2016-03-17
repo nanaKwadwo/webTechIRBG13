@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2016 at 12:06 PM
+-- Generation Time: Mar 17, 2016 at 12:08 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -30,7 +30,6 @@ CREATE TABLE `faculty` (
   `faculty_id` int(11) NOT NULL,
   `userName` varchar(300) NOT NULL,
   `password` varchar(300) NOT NULL,
-  `yeargroup` int(4) NOT NULL,
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `gender` enum('MALE','FEMALE') NOT NULL,

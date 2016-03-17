@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2016 at 09:03 AM
+-- Generation Time: Mar 17, 2016 at 09:28 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `irb_application` (
-  `applicant_id` int(11) NOT NULL,
-  `USERGROUP` int(11) NOT NULL,
+  `APPLICATION_ID` int(11) NOT NULL,
+  `APPLICANT_ID` int(11) NOT NULL,
   `TITLE_OF_PROJECT` varchar(300) NOT NULL,
   `PRINCIPAL_INVESTIGATOR` varchar(300) NOT NULL,
   `CO-PRINCIPAL_INVESTIGATOR` text NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `irb_application` (
 -- Indexes for table `irb_application`
 --
 ALTER TABLE `irb_application`
-  ADD PRIMARY KEY (`USERGROUP`);
+  ADD PRIMARY KEY (`APPLICATION_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -73,7 +73,7 @@ ALTER TABLE `irb_application`
 -- AUTO_INCREMENT for table `irb_application`
 --
 ALTER TABLE `irb_application`
-  MODIFY `USERGROUP` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `APPLICATION_ID` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

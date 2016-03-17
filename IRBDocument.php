@@ -302,7 +302,6 @@
                         </div>
 
                         <div>
-
                             <div class="fixed-action-btn" style="bottom: 210px; right: 175px;">
                                 <a class="btn-floating btn-large blue">
                                     <i class="large material-icons">attach_file</i>

@@ -38,7 +38,12 @@
                     <li class="tab col s3"><a href="#schedule">Schedule</a></li>
                 </ul>
             </div>
-            <div id="applications" class="col s12">Applications</div>
+            <div id="applications" class="col s12"><?php
+                       $path = $_SERVER['DOCUMENT_ROOT'];
+                       $path .= "/WT_SW Project/pages/controller/user_controller.php";
+                        include_once($path);  
+                    getApplications();
+            ?></div>
             <div id="schedule" class="col s12">Schedule</div>
         </div>
         <div class="fixed-action-btn" style="bottom: 250px; right: 50px;">

@@ -1,6 +1,6 @@
 <?php 
 /*
-getApplicants, gives a list of eligible applicants
+*function getApplicants, gives a list of eligible applicants
 */
 function getApplicants() {
     $path = $_SERVER['DOCUMENT_ROOT'];

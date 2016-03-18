@@ -60,16 +60,7 @@ class adb{
 		return $this->result->fetch_assoc();
 	}
 }
-/*
-This is a test code
-$obj=new adb();
-if(!$obj->query("select * from users"))
-{
-	echo "error";
-	exit();
-}
-print_r($obj->fetch());
-*/
+
 /*
 $obj = new adb();
 $obj->connect();
@@ -80,7 +71,7 @@ else
 
 
 $obj= new adb();
-$result=$obj->query("select * from applications");
+$result=$obj->query("select * from irb_application");
 if($result==false)
 	echo "no result obtained";
 else 

@@ -39,7 +39,12 @@
                     <li class="tab col s3"><a href="#sponsors">Sponsors</a></li>
                 </ul>
             </div>
-            <div id="applicants" class="col s12">Applicants</div>
+            <div id="applicants" class="col s12"><?php 
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/WT_SW Project/pages/controller/admin_controller.php";
+include_once($path);
+getApplicants();
+?></div>
             <div id="reviewers" class="col s12">Reviewers</div>
             <div id="sponsors" class="col s12">Sponsors</div>
         </div>
@@ -48,28 +53,19 @@
                 <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
-                <li><button class="btn-floating red" onclick ="modalON()"><i class="material-icons" >add</i></button></li>
+                <li>
+                    <button class="btn-floating red" onclick="modalON()"><i class="material-icons">add</i></button>
+                </li>
             </ul>
         </div>
-        
-            <!-- Modal Structure -->
-            <div id="modal1" class="modal bottom-sheet">
-                <div class="modal-content">
-                    <h4>Users</h4>
-                    
-                    <?php
-                       $path = $_SERVER['DOCUMENT_ROOT'];
-                       $path .= "/WT_SW Project/pages/controller/admin_controller.php";
-                        include_once($path);  
-                    #getUsers();
-            ?>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
-            </div>
 
-      
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+
     </main>
 
     <footer class="page-footer  indigo lighten-4">

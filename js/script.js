@@ -9,3 +9,6 @@ $(document).ready(function() {
 function modalON(){
     $('#modal1').openModal();
 }
+function modalEdit(){
+    $('#modal2').openModal();
+}

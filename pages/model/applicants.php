@@ -14,6 +14,12 @@ class applicants extends adb {
 
         return $this->query($strQuery);
     }
+    
+    function getNonApplicants() {
+        $strQuery = "SELECT * FROM users WHERE is_applicant = 0";
+
+        return $this->query($strQuery);
+    }
 
     function getByUsernameAndId($id, $username) {
         $strQuery = "SELECT * From users where username = '$username' and user_id  = $id";
@@ -42,7 +48,6 @@ class applicants extends adb {
         `is_applicant`=$isApplicant
          WHERE `users`.`user_id` = $id
          ";
-         echo $strQuery;
         $res = $this->query($strQuery);
         return $res;
 

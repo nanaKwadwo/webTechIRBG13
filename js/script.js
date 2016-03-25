@@ -2,13 +2,8 @@ $(document).ready(function() {
     $('select').material_select();
 
 });
-$(document).ready(function() {
-  $('.modal-trigger').leanModal();
-});
-
-function modalON(){
-    $('#modal1').openModal();
-}
-function modalEdit(){
-    $('#modal2').openModal();
-}
+  $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });

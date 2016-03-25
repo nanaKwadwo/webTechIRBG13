@@ -40,6 +40,45 @@ function getApplicants() {
 
 }
 
+
+function getNonApplicants() {
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WT_SW Project/pages/model/applicants.php";
+    include_once($path);
+
+    $applicant = new applicants();
+
+    $result = $applicant->getNonApplicants();
+    if ($result == false) {
+        echo "<h4>No Nonapplicants to display yet</h4>";
+    } else {
+        echo "     
+      <table>
+        <thead>
+          <tr>
+              <th data-field=\"id\">Non-Applicant Id</th>
+              <th data-field=\"name\"> Non-Applicant Username</th>
+              <th data-field=\"name\">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+";
+        while ($row = $applicant->fetch()) {
+            echo "          
+          <tr>
+            <td>{$row['user_id']}</td>
+            <td>{$row['username']}</td>
+            <td><a class=\"waves-effect waves-teal btn-flat\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\" >Add As Applicant</a></td>
+          </tr>";
+        }
+        echo "        
+            </tbody>
+           </table>";
+    }
+
+
+}
+
 /*
 addApplicant, modal to add applicant
 */

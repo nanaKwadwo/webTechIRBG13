@@ -54,15 +54,26 @@ getApplicants();
             </a>
             <ul>
                 <li>
-                    <button class="btn-floating red" onclick="modalON()"><i class="material-icons">add</i></button>
+                    <button class="btn-floating red"><i class="material-icons">add</i></button>
                 </li>
             </ul>
         </div>
 
-            </div>
         </div>
-
-
+        </div>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i> Non Applicants</div>
+                <div class="collapsible-body">
+                    <div id="non_applicants" class="col s12"><?php 
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/WT_SW Project/pages/controller/admin_controller.php";
+include_once($path);
+getNonApplicants();
+?></div>
+                </div>
+            </li>
+            </ul>
     </main>
 
     <footer class="page-footer  indigo lighten-4">

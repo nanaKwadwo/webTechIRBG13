@@ -37,37 +37,36 @@ $data = $applicant->fetch();
                     <div class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="first_name" name="id" type="hidden" class="validate" value="<?php echo $id;?>">
-                                <input id="first_name" name="username" type="hidden" class="validate" value="<?php echo $username;?>">
-                                <input id="first_name" name="userName" type="text" class="validate" value="<?php echo $data['userName']; ?>">
+                                <input id="first_name" name="id" type="hidden" class="validate" value="<?php echo $id; ?>">
+                                <input id="first_name" name="username" type="hidden" class="validate" value="<?php echo $username; ?>">
+                                <input id="first_name" name="userName" type="text" class="validate" value="<?php echo $data['username']; ?>">
                                 <label for="first_name">Username</label>
                             </div>
                             <div class="input-field col s6">
                                 <input id="first_name" name="password" type="password" class="validate" value="<?php echo $data['password']; ?>">
                                 <label for="first_name">Password</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="first_name" name="firstname" type="text" class="validate" value="<?php echo $data['firstName']; ?>">
-                                <label for="first_name">First name</label>
+                            <div class="input-field col s4">
+                                <select multiple name = "userstatus[]">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="Admin" <?php if(strpos($data['user_status'],"Admin")!==false){echo "selected";} ?>>Admin</option>
+                                    <option value="Reviewer" <?php if(strpos($data['user_status'],"Reviewer")!==false){echo "selected";} ?>>Reviewer</option>
+                                    <option value="Student" <?php if(strpos($data['user_status'],"Student")!==false){echo "selected";} ?>>Student</option>
+                                </select>
+                                <label>User Status</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="first_name" type="text" name="lastname" class="validate" value="<?php echo $data['lastName']; ?>">
-                                <label for="first_name">Last Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="first_name" type="text" name="email" class="validate" value="<?php echo $data['email']; ?>">
-                                <label for="first_name">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="first_name" type="text" name="address" class="validate" value="<?php echo $data['address']; ?>">
-                                <label for="first_name">Address</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="first_name" type="text" name="phonenumber" class="validate" value="<?php echo $data['phoneNumber']; ?>">
-                                <label for="first_name">Phone</label>
+                            <div>
+                               <p>
+                                  <input name="isApplicant" value = 1 type="radio" id="test1" checked = "checked"/>
+                                     <label for="test1">Is Applicant</label>
+                                  </p>
+                                     <p>
+                                   <input name="isApplicant" value = 0 type="radio" id="test2" />
+                                  <label for="test2">Not Applicant</label>
+                                 </p>
                             </div>
                         </div>
-                        <button class="btn waves-effect waves-light" type="submit">Validate
+                        <button class="btn waves-effect waves-light" type="submit">Update
                             <i class="material-icons right">send</i>
                         </button>
                     </div>

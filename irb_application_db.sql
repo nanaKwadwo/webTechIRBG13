@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2016 at 12:08 PM
+-- Generation Time: Mar 25, 2016 at 07:57 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -39,6 +39,14 @@ CREATE TABLE `faculty` (
   `phoneNumber` decimal(12,0) NOT NULL,
   `usergroup` enum('Reviewer','Admin','Applicant','None') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`faculty_id`, `userName`, `password`, `firstName`, `lastName`, `gender`, `dateOfBirth`, `email`, `address`, `phoneNumber`, `usergroup`) VALUES
+(1, 'Delanyo', 'new padd', 'Delanyo', 'test', 'MALE', '2016-03-09', 'test@test.com', '', '0', 'Applicant'),
+(2, 'Eben', 'dgdgd', 'Ebenezer', 'Guwama', 'MALE', '2016-03-14', '', '', '0', 'Applicant');
 
 -- --------------------------------------------------------
 
@@ -85,17 +93,6 @@ INSERT INTO `irb_application` (`APPLICATION_ID`, `APPLICANT_ID`, `TITLE_OF_PROJE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reviewers`
---
-
-CREATE TABLE `reviewers` (
-  `reviewer_id` int(11) NOT NULL,
-  `faculty_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `student`
 --
 
@@ -115,6 +112,35 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `userName`, `password`, `yeargroup`, `firstName`, `lastName`, `gender`, `dateOfBirth`, `email`, `address`, `phoneNumber`, `is_applicant`) VALUES
+(1, 'Nelson', 'test', 2016, 'Nana Kwadwo', 'Darfoor', 'FEMALE', '2016-03-09', 'test@test.com', '', '0', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `is_applicant` tinyint(1) NOT NULL,
+  `user_status` set('Admin','Reviewer','Student','') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`, `is_applicant`, `user_status`) VALUES
+(1, 'Kofi', 'dgdgd', 1, 'Reviewer,'),
+(2, 'Ama', 'dsdsd', 0, 'Reviewer');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -131,16 +157,16 @@ ALTER TABLE `irb_application`
   ADD PRIMARY KEY (`APPLICATION_ID`);
 
 --
--- Indexes for table `reviewers`
---
-ALTER TABLE `reviewers`
-  ADD PRIMARY KEY (`reviewer_id`);
-
---
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`student_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -150,22 +176,22 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `irb_application`
 --
 ALTER TABLE `irb_application`
   MODIFY `APPLICATION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `reviewers`
---
-ALTER TABLE `reviewers`
-  MODIFY `reviewer_id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

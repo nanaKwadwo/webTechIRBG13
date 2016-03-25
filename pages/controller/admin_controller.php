@@ -27,9 +27,9 @@ function getApplicants() {
         while ($row = $applicant->fetch()) {
             echo "          
           <tr>
-            <td>{$row['faculty_id']}</td>
-            <td>{$row['userName']}</td>
-            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['faculty_id']}&username={$row['userName']}\" >Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
+            <td>{$row['user_id']}</td>
+            <td>{$row['username']}</td>
+            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\" >Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
           </tr>";
         }
         echo "        
@@ -60,20 +60,17 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/WT_SW Project/pages/model/applicants.php";
 include_once($path);
 
-if (isset($_REQUEST['username']) and isset($_REQUEST['password']) and isset($_REQUEST['phonenumber'])) {
+if (isset($_REQUEST['username']) and isset($_REQUEST['password'])) {
     $id = $_REQUEST['id'];
     $user = $_REQUEST['username'];
     $username = $_REQUEST['userName'];
     $password = $_REQUEST['password'];
-    $firstname = $_REQUEST['firstname'];
-    $lastname = $_REQUEST['lastname'];
-    $email = $_REQUEST['email'];
-    $address = $_REQUEST['address'];
-    $phonenumber = $_REQUEST['phonenumber'];
+    $userStatus =$_REQUEST['userstatus'];
+    $isApplicant =$_REQUEST['isApplicant'];
 
 
     $app = new applicants();
-    $result = $app->updateApplicant($id, $user,$username, $password, $firstname, $lastname, $email, $address, $phonenumber);
+    $result = $app->updateApplicant($id, $user,$username, $password, $userStatus, $isApplicant);
     if ($result) {
        header('Location: ../../AdminPage.php');
     }

@@ -10,20 +10,18 @@ class applicants extends adb {
      *@return list of applicants
      */
     function getApplicants() {
-        $strQuery = "SELECT`faculty_id`,`userName`,`firstName`,`lastName` FROM `faculty` WHERE `usergroup` = 'Applicant' UNION SELECT`student_id`,`userName`,`firstName`,`lastName` FROM student WHERE is_applicant = 1";
+        $strQuery = "SELECT * FROM users WHERE is_applicant = 1";
 
         return $this->query($strQuery);
     }
 
     function getByUsernameAndId($id, $username) {
-        $strQuery = "SELECT `userName`,`password`,`firstName`,`lastName`,`email`,`address`,`phoneNumber` FROM `faculty` WHERE `faculty_id` = $id AND userName = '$username'
-UNION
-SELECT `userName`,`password`,`firstName`,`lastName`,`email`,`address`,`phoneNumber`  FROM `student` WHERE `student_id` = $id AND userName = '$username'";
+        $strQuery = "SELECT * From users where username = '$username' and user_id  = $id";
 
         return $this->query($strQuery);
     }
 
-/**
+    /**
 *function to update the information of the applicants
 *@pram $id is the id of the applicant
 *@pram $user is the initial username of the applicant
@@ -36,40 +34,18 @@ SELECT `userName`,`password`,`firstName`,`lastName`,`email`,`address`,`phoneNumb
 *@return query success or failure
  
 */
-    function updateApplicant($id, $user, $username, $password, $firstname, $lastname, $email, $address, $phonenumber) {
-        $strQuery = "UPDATE `faculty` SET 
-        `userName`='$username',
+    function updateApplicant($id, $user, $username, $password, $userStatus, $isApplicant) {
+        $strQuery = "UPDATE `users` SET 
+        `username`='$username',
         `password`='$password',
-        `firstName`='$firstname',
-        `lastName`='$lastname',
-        `email`='$email',
-        `address`='$address',
-        `phoneNumber`='$phonenumber'
-         WHERE `faculty_id` = $id AND userName = '$user'
+        `user_status`='$userStatus[0],$userStatus[1],$userStatus[2]',
+        `is_applicant`=$isApplicant
+         WHERE `users`.`user_id` = $id
          ";
-        $strQuery2 = "
-         UPDATE `student` SET 
-        `userName`='$username',
-        `password`='$password',
-        `firstName`='$firstname',
-        `lastName`='$lastname',
-        `email`='$email',
-        `address`='$address',
-        `phoneNumber`='$phonenumber'
-         WHERE `student_id` = $id AND userName = '$user'
-         ";
-
+         echo $strQuery;
         $res = $this->query($strQuery);
-        $res2 = $this->query($strQuery2);
+        return $res;
 
-        echo $strQuery;
-        echo $strQuery2;
-
-        if ($res != null) {
-            return $res;
-        } else {
-            return $res2;
-        }
     }
 }
 ?>

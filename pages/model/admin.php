@@ -73,10 +73,10 @@ class admin extends adb {
 	*/
 	function addApplicant($studentID) {
 
-		/**
+		/*
 		*@var string strQuery, for mysql command to update is_applicant column value in user table
 		*/
-		$strQuery = "update student set is_applicant = '1' where student_id = '$studentID'";
+		$strQuery = "update users set is_applicant = '1' where user_id = '$studentID'";
 
 		return $this->query($strQuery);
 	}

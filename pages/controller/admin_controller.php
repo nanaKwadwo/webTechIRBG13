@@ -68,7 +68,7 @@ function getNonApplicants() {
           <tr>
             <td>{$row['user_id']}</td>
             <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-teal btn-flat\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\" >Add As Applicant</a></td>
+            <td><a class=\"waves-effect waves-teal btn-flat\" href=\"pages/controller/admin_controller.php?id={$row['user_id']}\" >Add As Applicant</a></td>
           </tr>";
         }
         echo "        
@@ -82,7 +82,14 @@ function getNonApplicants() {
 /*
 addApplicant, modal to add applicant
 */
-
+function addApplicant($id){
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WT_SW Project/pages/model/admin.php";
+    include_once($path);
+    
+    $admin = new admin();
+    $admin->addApplicant($id);
+}
 /*
 addReviewer, modal to make a staff a reviewer
 */
@@ -98,6 +105,11 @@ editApplicant, modal to add applicant
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/WT_SW Project/pages/model/applicants.php";
 include_once($path);
+
+if (isset($_REQUEST['id'])){
+    addApplicant($_REQUEST['id']);
+    header('Location: ../../AdminPage.php');
+}
 
 if (isset($_REQUEST['username']) and isset($_REQUEST['password'])) {
     $id = $_REQUEST['id'];

@@ -33,6 +33,7 @@ function addApplication($aId, $title, $pInvestigator, $cpInvestigator, $finance,
 
 }
 
+/*
 $obj= new irb_application();
 $result=$obj->addApplication(
 3,
@@ -58,9 +59,9 @@ $result=$obj->addApplication(
  'asdfasdf',
  'asdfasdf',
  'SAVE',
- 'REVIEW_PENDING',
+ 'PENDING_REVIEW',
  'S');
 
 var_dump($result);
-
+*/
 ?>

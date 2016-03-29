@@ -15,7 +15,7 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Applicant</a>
+                <a href="#" class="brand-logo center">Reviewer</a>
                 <div class="row">
                     <div class="col s4 right">
                         <form>
@@ -38,12 +38,14 @@
                     <li class="tab col s3"><a href="#schedule">Schedule</a></li>
                 </ul>
             </div>
-            <div id="applications" class="col s12"><?php
-                       $path = $_SERVER['DOCUMENT_ROOT'];
-                       $path .= "/WT_SW Project/pages/controller/user_controller.php";
-                        include_once($path);  
-                    getApplications();
-            ?></div>
+            <div id="applications" class="col s12">
+                <?php 
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/WT_SW Project/pages/controller/reviewer_controller.php";
+include_once($path);
+getApplications();
+?>
+            </div>
             <div id="schedule" class="col s12">Schedule</div>
         </div>
         <div class="fixed-action-btn" style="bottom: 250px; right: 50px;">
@@ -51,7 +53,7 @@
                 <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
-                <li><a class="btn-floating red" href="IRBDocument.php"><i class="material-icons">add</i></a></li>
+                <li><a class="btn-floating red"><i class="material-icons">add</i></a></li>
                 <li><a class="btn-floating yellow darken-1"><i class="material-icons">today</i></a></li>
             </ul>
         </div>
@@ -73,7 +75,6 @@
                 <a class="grey-text text-lighten-4 right" href="index.php">To login</a>
                 <a class="grey-text text-lighten-4 right" href="AdminPage.php">To Admin</a>
                 <a class="grey-text text-lighten-4 right" href="IRBDocument.php">To Doc</a>
-                <a class="grey-text text-lighten-4 right" href="Reviewer.php">To Reviewers</a>
             </div>
         </div>
     </footer>

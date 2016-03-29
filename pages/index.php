@@ -33,7 +33,7 @@
                             <div class="input-field col s4">
                                 <select name="usersgroup">
                                     <option value="" disabled selected>Choose your Usergroup</option>
-                                    <option value="reviewer">Reviewer</option>
+                                    <option value="faculty">Faculty</option>
                                     <option value="student">Student</option>
                                 </select>
                                 <label>Usergroup</label>
@@ -68,7 +68,7 @@
     </footer>
     <!--Import jQuery before materialize.js-->
    
-     <script type="text/javascript" src="js/jqueryfile.js"></script>
+        <script type="text/javascript" src="js/jqueryfile.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>

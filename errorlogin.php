@@ -20,7 +20,14 @@
             <form class="card medium center-align  valign-wrapper" method="POST" action="pages/controller/login_controller.php">
                     <div class="container">
                         <div class="container">
-                            <h3>Sign In</h3></div>
+                            <h4>Sign In</h4></div>
+                            <style>
+                            label {
+color: #FF0000;
+}
+</style>
+
+                            <label for="male"> Invalid login, please try again</label>
                         <div class="input-field col s6">
                             <input id="Username" type="text" class="validate" name="username">
                             <label for="Username">Username</label>
@@ -61,14 +68,13 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="AdminPage.php">To Admin</a>
-                <a class="grey-text text-lighten-4 right" href="User.php">To User</a>
+                <a class="grey-text text-lighten-4 right" href="../../AdminPage.php">To Admin</a>
+                <a class="grey-text text-lighten-4 right" href="../../User.php">To User</a>
             </div>
         </div>
     </footer>
     <!--Import jQuery before materialize.js-->
-   
-     <script type="text/javascript" src="js/jqueryfile.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>

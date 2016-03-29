@@ -15,7 +15,7 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Applicant</a>
+                <a href="#" class="brand-logo center">Admin</a>
                 <div class="row">
                     <div class="col s4 right">
                         <form>
@@ -34,28 +34,42 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#applications">Applications</a></li>
-                    <li class="tab col s3"><a href="#schedule">Schedule</a></li>
+                    <li class="tab col s3"><a class="active" href="#applicants">Applicants</a></li>
+                    <li class="tab col s3"><a href="#reviewers">Reviewers</a></li>
+                    <li class="tab col s3"><a href="#sponsors">Sponsors</a></li>
                 </ul>
             </div>
-            <div id="applications" class="col s12"><?php
-                       $path = $_SERVER['DOCUMENT_ROOT'];
-                       $path .= "/WT_SW Project/pages/controller/user_controller.php";
-                        include_once($path);  
-                    getApplications();
-            ?></div>
-            <div id="schedule" class="col s12">Schedule</div>
+            <div id="applicants" class="col s12">Applicants</div>
+            <div id="reviewers" class="col s12">Reviewers</div>
+            <div id="sponsors" class="col s12">Sponsors</div>
         </div>
         <div class="fixed-action-btn" style="bottom: 250px; right: 50px;">
             <a class="btn-floating btn-large red">
                 <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
-                <li><a class="btn-floating red" href="IRBDocument.php"><i class="material-icons">add</i></a></li>
-                <li><a class="btn-floating yellow darken-1"><i class="material-icons">today</i></a></li>
+                <li><button class="btn-floating red" onclick ="modalON()"><i class="material-icons" >add</i></button></li>
             </ul>
         </div>
+        
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Users</h4>
+                    
+                    <?php
+                       $path = $_SERVER['DOCUMENT_ROOT'];
+                       $path .= "/WT_SW Project/pages/controller/admin_controller.php";
+                        include_once($path);  
+                    #getUsers();
+            ?>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
 
+      
     </main>
 
     <footer class="page-footer">
@@ -71,15 +85,14 @@
             <div class="container">
                 © 2014 Copyright Text
                 <a class="grey-text text-lighten-4 right" href="index.php">To login</a>
-                <a class="grey-text text-lighten-4 right" href="AdminPage.php">To Admin</a>
-                <a class="grey-text text-lighten-4 right" href="IRBDocument.php">To Doc</a>
-                <a class="grey-text text-lighten-4 right" href="Reviewer.php">To Reviewers</a>
+                <a class="grey-text text-lighten-4 right" href="User.php">To User</a>
             </div>
         </div>
     </footer>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>

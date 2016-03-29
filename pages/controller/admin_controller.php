@@ -89,9 +89,10 @@ function addApplicant($id){
     
     $admin = new admin();
     $res=$admin->addApplicant($id);
-    if($res){
-       header('Location: ../../AdminPage.php');
-    }
+    
+     if($res){
+        header('Location: ../../AdminPage.php');
+     }
 }
 /*
 addReviewer, modal to make a staff a reviewer
@@ -110,7 +111,7 @@ $path .= "/WT_SW Project/pages/model/applicants.php";
 include_once($path);
 
  if (isset($_REQUEST['user_id'])){
-     addApplicant($_REQUEST['id']);
+     addApplicant($_REQUEST['user_id']);
 
 }
 

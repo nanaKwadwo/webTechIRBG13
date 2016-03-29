@@ -17,15 +17,15 @@ function irb_application(){
 function addApplication($aId, $title, $pInvestigator, $cpInvestigator, $finance, $exemption, $subjects, $special,
 	$recruitement, $information, $method, $datasource, $researchInvoles, $procedure, $confidentiality,
 	$dataHandling, $dissemination, $informingSubjects, $confProcedure, $parcipantReward, $participantBenefits,
-	$rationale, $application_state,$reviewer_status, $attachment){
+	$rationale, $application_state,$reviewer_status){
 	
 	$strQuery="INSERT INTO `irb_application`
-	(`APPLICANT_ID`,`TITLE_OF_PROJECT`,`PRINCIPAL_INVESTIGATOR`, `CO-PRINCIPAL_INVESTIGATOR`, `SOURCES_OF_FINANCE`, `REQUEST_FOR_EXEMPTION`, `CHARACTERISTICS_OF_SUBJECTS`, `SPECIAL_CASES`, `METHOD_OF_RECRUITMENT`, `EXTENT_OF_INFORMATION`, `RESEARCH_METHOD`, `DATA_SOURCES`, `RESEARCH_INVOLVES`, `PROCEDURE_OF_RESEARCH`, `CONFIDENTIALITY_OF_INFORMATION`, `HANDLING_DATA`, `DISSEMINATION_OF_DATA`, `INFORMING_SUBJECT`, `CONFIDENTIALITY_PROCEDURES`, `PARTICIPANT_REWARD`, `PARTICIPANT_BENEFITS`, `RATIONALE_FOR_EXCLUSION`, `APPLICATION_STATE`, `REVIEWER_STATUS`, `ATTACHMENTS`)
+	(`APPLICANT_ID`,`TITLE_OF_PROJECT`,`PRINCIPAL_INVESTIGATOR`, `CO-PRINCIPAL_INVESTIGATOR`, `SOURCES_OF_FINANCE`, `REQUEST_FOR_EXEMPTION`, `CHARACTERISTICS_OF_SUBJECTS`, `SPECIAL_CASES`, `METHOD_OF_RECRUITMENT`, `EXTENT_OF_INFORMATION`, `RESEARCH_METHOD`, `DATA_SOURCES`, `RESEARCH_INVOLVES`, `PROCEDURE_OF_RESEARCH`, `CONFIDENTIALITY_OF_INFORMATION`, `HANDLING_DATA`, `DISSEMINATION_OF_DATA`, `INFORMING_SUBJECT`, `CONFIDENTIALITY_PROCEDURES`, `PARTICIPANT_REWARD`, `PARTICIPANT_BENEFITS`, `RATIONALE_FOR_EXCLUSION`, `APPLICATION_STATE`, `REVIEWER_STATUS`)
 	VALUES ('$aId','$title','$pInvestigator','$cpInvestigator','$finance',
 	'$exemption','$subjects','$special','$recruitement','$information','$method',
 	'$datasource','$researchInvoles','$procedure','$confidentiality',
 	'$dataHandling','$dissemination','$informingSubjects','$confProcedure','$parcipantReward',
-	'$participantBenefits','$rationale','$application_state','$reviewer_status','$attachment')
+	'$participantBenefits','$rationale','$application_state','$reviewer_status')
 	";
 	return $this->query($strQuery);
 }

@@ -67,7 +67,7 @@
 else
 	header("location:../../errorlogin.php");
 }
-/*
+
 ?>
-<?php echo $error?>
-* */
+
+

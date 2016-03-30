@@ -24,12 +24,14 @@ function getApplicants() {
         </thead>
         <tbody>
 ";
-        while ($row = $applicant->fetch()) {
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WT_SW Project/ApplicantForm.php";
+        while ($row = $applicant->fetch()) {     
             echo "          
           <tr>
             <td>{$row['user_id']}</td>
             <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\" >Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
+            <td><a class=\"waves-effect waves-light btn\" href=\"../../ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\" >Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
           </tr>";
         }
         echo "        

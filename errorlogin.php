@@ -18,40 +18,41 @@
     <main>
         <div class="container">
             <form class="card medium center-align  valign-wrapper" method="POST" action="pages/controller/login_controller.php">
+                <div class="container">
                     <div class="container">
-                        <div class="container">
-                            <h4>Sign In</h4></div>
-                            <style>
-                            label {
-color: #FF0000;
-}
-</style>
+                        <h4>Sign In</h4></div>
+                    <style>
+                        label {
+                            color: #FF0000;
+                        }
+                    </style>
 
-                            <label for="male"> Invalid login, please try again</label>
-                        <div class="input-field col s6">
-                            <input id="Username" type="text" class="validate" name="username">
-                            <label for="Username">Username</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="Password" type="password" class="validate" name="password">
-                            <label for="Password">Password</label>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s4">
-                                <select name="usersgroup">
-                                    <option value="" disabled selected>Choose your Usergroup</option>
-                                    <option value="reviewer">Reviewer</option>
-                                    <option value="student">Student</option>
-                                </select>
-                                <label>Usergroup</label>
-                            </div>
-                        </div>
-                        <label class="lbl" name="lbl">
-                        </label>
-                        <button class="btn waves-effect waves-light"  value="submit" name="submit"type="submit">Login
-                            <i class="material-icons right">send</i>
-                        </button>
+                    <label for="male"> Invalid login, please try again</label>
+                    <div class="input-field col s6">
+                        <input id="Username" type="text" class="validate" name="username">
+                        <label for="Username">Username</label>
                     </div>
+                    <div class="input-field col s6">
+                        <input id="Password" type="password" class="validate" name="password">
+                        <label for="Password">Password</label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <select name="usersgroup">
+                                <option value="" disabled selected>Choose your Usergroup</option>
+                                <option value="reviewer">Reviewer</option>
+                                <option value="applicant">Applicant</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <label>Usergroup</label>
+                        </div>
+                    </div>
+                    <label class="lbl" name="lbl">
+                    </label>
+                    <button class="btn waves-effect waves-light" value="submit" name="submit" type="submit">Login
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </form>
         </div>
     </main>
@@ -78,6 +79,4 @@ color: #FF0000;
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
-
-
 </html>

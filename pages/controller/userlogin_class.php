@@ -20,8 +20,12 @@ class userlogin_class extends adb{
 		//$hash_pass = md5($pword.'@^%^TYGHys23233');
 		//$strQuery="select username from $usergroup where
 		// username='$username' and password='$pword'";
-		$strQuery="select username from	users where username='$username'and user_status='$usergroup' and password='$pword'";
-		 
+		if($usergroup=="applicant"){
+				$strQuery="select * from users where username='$username'and is_applicant='1' and password='$pword' ";
+			}
+			else{
+		$strQuery="select * from users where username='$username' and user_status like '%$usergroup%' and password='$pword'";
+	 }
 		
 		 return $this->query($strQuery);	
 		}

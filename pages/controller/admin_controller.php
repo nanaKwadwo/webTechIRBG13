@@ -3,9 +3,7 @@
 *function getApplicants, gives a list of eligible applicants
 */
 function getApplicants() {
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/applicants.php";
-    include_once($path);
+include 'pages/model/applicants.php';
 
     $applicant = new applicants();
 
@@ -42,9 +40,6 @@ function getApplicants() {
 
 
 function getNonApplicants() {
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/applicants.php";
-    include_once($path);
 
     $applicant = new applicants();
 
@@ -83,10 +78,8 @@ function getNonApplicants() {
 addApplicant, modal to add applicant
 */
 function addApplicant($id){
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/admin.php";
-    include_once($path);
-    
+    include_once("../model/applicants.php");
+    include_once("../model/admin.php");
     $admin = new admin();
     $res=$admin->addApplicant($id);
     
@@ -106,16 +99,13 @@ addSponsor, a modal to add a Sponsor to the Database
 editApplicant, modal to add applicant
 */
 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/model/applicants.php";
-include_once($path);
 
  if (isset($_REQUEST['user_id'])){
      addApplicant($_REQUEST['user_id']);
-
 }
 
 if (isset($_REQUEST['username']) and isset($_REQUEST['password'])) {
+    include_once("../model/applicants.php");
     $id = $_REQUEST['id'];
     $user = $_REQUEST['username'];
     $username = $_REQUEST['userName'];

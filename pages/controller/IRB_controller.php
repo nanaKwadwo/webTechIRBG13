@@ -31,9 +31,8 @@ if (isset($_REQUEST['applicant_id'])) {
     $review = "PENDING_REVIEW";
     echo "include";
     
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/irb_application_class.php";
-    include_once($path);
+    include_once("../model/irb_application_class.php");
+
     
     echo "Adding Application";
     $application = new irb_application();

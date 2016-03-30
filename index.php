@@ -36,6 +36,7 @@
                                   <option value="applicant">Applicant</option>
                                    <option value="reviewer">Reviewer</option>                                    
                                     <option value="admin">Admin</option>
+
                                 </select>
                                 <label>Usergroup</label>
                             </div>
@@ -68,11 +69,12 @@
         </div>
     </footer>
     <!--Import jQuery before materialize.js-->
-   
-       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 
+
 </html>
+

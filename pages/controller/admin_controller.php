@@ -24,14 +24,12 @@ function getApplicants() {
         </thead>
         <tbody>
 ";
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/ApplicantForm.php";
-        while ($row = $applicant->fetch()) {     
+        while ($row = $applicant->fetch()) {
             echo "          
           <tr>
             <td>{$row['user_id']}</td>
             <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-light btn\" href=\"../../ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\" >Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
+            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
           </tr>";
         }
         echo "        
@@ -70,7 +68,7 @@ function getNonApplicants() {
           <tr>
             <td>{$row['user_id']}</td>
             <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-teal btn-flat\" href=\"pages/controller/admin_controller.php?id={$row['user_id']}\" >Add As Applicant</a></td>
+            <td><a class=\"waves-effect waves-teal btn-flat\" href=\"pages/controller/admin_controller.php?user_id={$row['user_id']}\" >Add As Applicant</a></td>
           </tr>";
         }
         echo "        
@@ -90,7 +88,11 @@ function addApplicant($id){
     include_once($path);
     
     $admin = new admin();
-    $admin->addApplicant($id);
+    $res=$admin->addApplicant($id);
+    
+     if($res){
+        header('Location: ../../AdminPage.php');
+     }
 }
 /*
 addReviewer, modal to make a staff a reviewer
@@ -108,9 +110,9 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/WT_SW Project/pages/model/applicants.php";
 include_once($path);
 
-if (isset($_REQUEST['id'])){
-    addApplicant($_REQUEST['id']);
-    header('Location: ../../AdminPage.php');
+ if (isset($_REQUEST['user_id'])){
+     addApplicant($_REQUEST['user_id']);
+
 }
 
 if (isset($_REQUEST['username']) and isset($_REQUEST['password'])) {

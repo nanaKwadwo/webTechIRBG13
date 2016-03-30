@@ -21,7 +21,7 @@
     </header>
     <main>
         <div class="container">
-            <form class="card center-align  valign-wrapper" id="irbform">
+            <form  action="pages/controller/IRB_controller.php" class="card center-align  valign-wrapper" id="irbform">
                 <div class="container">
                     <div class="container">
                         <h3>Ashesi University</h3>

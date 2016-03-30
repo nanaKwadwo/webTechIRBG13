@@ -40,9 +40,7 @@
                 </ul>
             </div>
             <div id="applicants" class="col s12"><?php 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/controller/admin_controller.php";
-include_once($path);
+include_once("pages/controller/admin_controller.php");
 getApplicants();
 ?></div>
             <div id="reviewers" class="col s12">Reviewers</div>
@@ -66,14 +64,12 @@ getApplicants();
                 <div class="collapsible-header"><i class="material-icons">filter_drama</i> Non Applicants</div>
                 <div class="collapsible-body">
                     <div id="non_applicants" class="col s12"><?php 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/controller/admin_controller.php";
-include_once($path);
+include_once("pages/controller/admin_controller.php");
 getNonApplicants();
 ?></div>
                 </div>
             </li>
-            </ul>
+        </ul>
     </main>
 
     <footer class="page-footer  indigo lighten-4">

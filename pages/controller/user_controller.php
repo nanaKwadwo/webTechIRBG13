@@ -4,9 +4,7 @@
 getApplications, a method that calls a method to get the applications given the user-id of that user
 */
 function getApplications() {
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/applications.php";
-    include_once($path);
+    include_once("pages/model/applications.php");
     
     if (isset($_REQUEST['usercode'])) {
         $usercode = $_REQUEST['usercode'];

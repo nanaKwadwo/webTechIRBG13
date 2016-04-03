@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2016 at 07:57 AM
+-- Generation Time: Apr 04, 2016 at 12:57 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -59,7 +59,7 @@ CREATE TABLE `irb_application` (
   `APPLICANT_ID` int(11) NOT NULL,
   `TITLE_OF_PROJECT` varchar(300) NOT NULL,
   `PRINCIPAL_INVESTIGATOR` varchar(300) NOT NULL,
-  `CO-PRINCIPAL_INVESTIGATOR` text NOT NULL,
+  `CO-PRINCIPAL_INVESTIGATOR` varchar(300) NOT NULL,
   `SOURCES_OF_FINANCE` text NOT NULL,
   `REQUEST_FOR_EXEMPTION` text NOT NULL,
   `CHARACTERISTICS_OF_SUBJECTS` text NOT NULL,
@@ -88,7 +88,21 @@ CREATE TABLE `irb_application` (
 --
 
 INSERT INTO `irb_application` (`APPLICATION_ID`, `APPLICANT_ID`, `TITLE_OF_PROJECT`, `PRINCIPAL_INVESTIGATOR`, `CO-PRINCIPAL_INVESTIGATOR`, `SOURCES_OF_FINANCE`, `REQUEST_FOR_EXEMPTION`, `CHARACTERISTICS_OF_SUBJECTS`, `SPECIAL_CASES`, `METHOD_OF_RECRUITMENT`, `EXTENT_OF_INFORMATION`, `RESEARCH_METHOD`, `DATA_SOURCES`, `RESEARCH_INVOLVES`, `PROCEDURE_OF_RESEARCH`, `CONFIDENTIALITY_OF_INFORMATION`, `HANDLING_DATA`, `DISSEMINATION_OF_DATA`, `INFORMING_SUBJECT`, `CONFIDENTIALITY_PROCEDURES`, `PARTICIPANT_REWARD`, `PARTICIPANT_BENEFITS`, `RATIONALE_FOR_EXCLUSION`, `APPLICATION_STATE`, `REVIEWER_STATUS`, `ATTACHMENTS`) VALUES
-(1, 1, 'Test Project', 'Test Name', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(1, 4, 'Test Project', '2', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'SUBMITTED', '', ''),
+(2, 1, 'project', '1', '1', 'grant', 'request', 'character', 'special', 'method', 'extent', 'ressearch', 'data sources', '4', 'yes', '', 'data', 'dissemi', 'informed', 'confidence', 'reward', 'beliefs', 'rional', 'SAVE', 'PENDING_REVIEW', ''),
+(3, 1, 'project final', '1', '1', 'grant', 'request', 'character', 'special', 'method', 'extent', 'ressearch', 'data sources', '4', 'yes', '', 'data', 'dissemi', 'informed', 'confidence', 'reward', 'beliefs', 'rional', 'SAVE', 'PENDING_REVIEW', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sponsors`
+--
+
+CREATE TABLE `sponsors` (
+  `sponsor_id` int(11) NOT NULL,
+  `sponsor_name` varchar(300) NOT NULL,
+  `organisation_name` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -137,8 +151,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `is_applicant`, `user_status`) VALUES
-(1, 'Kofi', 'dgdgd', 1, 'Reviewer,'),
-(2, 'Ama', 'dsdsd', 0, 'Reviewer');
+(1, 'Kofi', 'dgdgd', 1, 'Admin,Reviewer,'),
+(2, 'Ama', 'dsdsd', 1, 'Reviewer'),
+(3, 'jo', 'jo', 0, 'Reviewer');
 
 --
 -- Indexes for dumped tables
@@ -155,6 +170,12 @@ ALTER TABLE `faculty`
 --
 ALTER TABLE `irb_application`
   ADD PRIMARY KEY (`APPLICATION_ID`);
+
+--
+-- Indexes for table `sponsors`
+--
+ALTER TABLE `sponsors`
+  ADD PRIMARY KEY (`sponsor_id`);
 
 --
 -- Indexes for table `student`
@@ -181,7 +202,12 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `irb_application`
 --
 ALTER TABLE `irb_application`
-  MODIFY `APPLICATION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `APPLICATION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `sponsors`
+--
+ALTER TABLE `sponsors`
+  MODIFY `sponsor_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `student`
 --
@@ -191,7 +217,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

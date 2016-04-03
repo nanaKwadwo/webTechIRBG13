@@ -25,6 +25,7 @@ if ($_POST['submit']) {
             while ($row = $obj->fetch()) {
                 $is_applicant = $row['is_applicant'];
                 $status = $row['user_status'];
+                $userId = $row['user_id'];
                 $count_rows++;
             }
 
@@ -33,23 +34,21 @@ if ($_POST['submit']) {
             }
 
             if ($count_rows == 1) {
-
                 if ($usergroup == 'applicant') {
                     if ($is_applicant == 0) {
                         header("location:../../errorlogin.php");
-                    } else header("location:../../User.php");
+                    } else {
+                        $_SESSION["user_id"] = $userId;
+                        header("location:../../User.php");
+                        }
                 }
-
                 if ($usergroup == 'reviewer') {
+                    $_SESSION["user_id"] = $userId;
                     header("location:../../Reviewer.php");
-
                 }
-
                 if ($usergroup == 'admin') {
-
+                     $_SESSION["user_id"] = $userId;
                     header("location:../../AdminPage.php");
-
-
                 }
             }
 

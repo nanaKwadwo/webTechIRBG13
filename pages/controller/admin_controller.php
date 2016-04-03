@@ -4,9 +4,7 @@
 */
 function getApplicants() {
 include 'pages/model/applicants.php';
-
     $applicant = new applicants();
-
     $result = $applicant->getApplicants();
     if ($result == false) {
         echo "<h4>No applicants to display yet</h4>";
@@ -37,12 +35,42 @@ include 'pages/model/applicants.php';
 
 
 }
+function getReviewers() {
+include 'pages/model/reviewers.php';
+    $reviewers = new reviewers();
+    $result = $reviewers->getReviewers();
+    if ($result == false) {
+        echo "<h4>No reviewers to display yet</h4>";
+    } else {
+        echo "     
+      <table>
+        <thead>
+          <tr>
+              <th data-field=\"id\">Applicant Id</th>
+              <th data-field=\"name\"> Applicant Username</th>
+              <th data-field=\"name\">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+";
+        while ($row = $reviewers->fetch()) {
+            echo "          
+          <tr>
+            <td>{$row['user_id']}</td>
+            <td>{$row['username']}</td>
+            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
+          </tr>";
+        }
+        echo "        
+            </tbody>
+           </table>";
+    }
 
+
+}
 
 function getNonApplicants() {
-
     $applicant = new applicants();
-
     $result = $applicant->getNonApplicants();
     if ($result == false) {
         echo "<h4>No Nonapplicants to display yet</h4>";

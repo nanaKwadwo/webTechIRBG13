@@ -18,6 +18,7 @@
     <main>
         <div class="container">
             <form class="card medium center-align  valign-wrapper" method="POST" action="pages/controller/login_controller.php">
+<<<<<<< HEAD
 
                     <div class="container">
                         <div class="container">
@@ -48,6 +49,29 @@
                             <i class="material-icons right">send</i>
                         </button>
 
+=======
+                <div class="container">
+                    <div class="container">
+                        <h3>Sign In</h3></div>
+                    <div class="input-field col s6">
+                        <input id="Username" type="text" class="validate" name="username">
+                        <label for="Username">Username</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="Password" type="password" class="validate" name="password">
+                        <label for="Password">Password</label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <select name="usersgroup">
+                                <option value="" disabled selected>Choose your Usergroup</option>
+                                <option value="applicant">Applicant</option>
+                                <option value="reviewer">Reviewer</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <label>Usergroup</label>
+                        </div>
+>>>>>>> 59f77a47cee01558b9eda212425bf47c08dd3d10
                     </div>
                     <label class="lbl" name="lbl">
                     </label>
@@ -83,6 +107,7 @@
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 
+<<<<<<< HEAD
 
 
 
@@ -91,3 +116,7 @@
 
 
 
+=======
+
+</html>
+>>>>>>> 59f77a47cee01558b9eda212425bf47c08dd3d10

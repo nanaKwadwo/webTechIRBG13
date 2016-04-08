@@ -39,9 +39,7 @@
                 </ul>
             </div>
             <div id="applications" class="col s12"><?php
-                       $path = $_SERVER['DOCUMENT_ROOT'];
-                       $path .= "/WT_SW Project/pages/controller/user_controller.php";
-                        include_once($path);  
+                    include_once("pages/controller/user_controller.php");  
                     getApplications();
             ?></div>
             <div id="schedule" class="col s12">Schedule</div>
@@ -51,7 +49,7 @@
                 <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
-                <li><a class="btn-floating red" href="IRBDocument.php?user_id=1"><i class="material-icons">add</i></a></li>
+                <li><a class="btn-floating red" href="IRBDocument.php"><i class="material-icons">add</i></a></li>
                 <li><a class="btn-floating yellow darken-1"><i class="material-icons">today</i></a></li>
             </ul>
         </div>

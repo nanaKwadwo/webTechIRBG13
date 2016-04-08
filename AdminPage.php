@@ -40,12 +40,27 @@
                 </ul>
             </div>
             <div id="applicants" class="col s12"><?php 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/controller/admin_controller.php";
-include_once($path);
+include_once("pages/controller/admin_controller.php");
 getApplicants();
+?>
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i> Non Applicants</div>
+                        <div class="collapsible-body">
+                            <div id="non_applicants" class="col s12"><?php 
+include_once("pages/controller/admin_controller.php");
+getNonApplicants();
 ?></div>
-            <div id="reviewers" class="col s12">Reviewers</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="reviewers" class="col s12">
+                <?php 
+include_once("pages/controller/admin_controller.php");
+getReviewers();
+?>
+            </div>
             <div id="sponsors" class="col s12">Sponsors</div>
         </div>
         <div class="fixed-action-btn" style="bottom: 250px; right: 50px;">
@@ -58,22 +73,8 @@ getApplicants();
                 </li>
             </ul>
         </div>
-
         </div>
         </div>
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">filter_drama</i> Non Applicants</div>
-                <div class="collapsible-body">
-                    <div id="non_applicants" class="col s12"><?php 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/controller/admin_controller.php";
-include_once($path);
-getNonApplicants();
-?></div>
-                </div>
-            </li>
-            </ul>
     </main>
 
     <footer class="page-footer  indigo lighten-4">

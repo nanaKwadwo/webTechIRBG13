@@ -18,6 +18,7 @@
     <main>
         <div class="container">
             <form class="card medium center-align  valign-wrapper" method="POST" action="pages/controller/login_controller.php">
+
                     <div class="container">
                         <div class="container">
                             <h3>Sign In</h3></div>
@@ -46,7 +47,14 @@
                         <button class="btn waves-effect waves-light"  value="submit" name="submit"type="submit">Login
                             <i class="material-icons right">send</i>
                         </button>
+
                     </div>
+                    <label class="lbl" name="lbl">
+                    </label>
+                    <button class="btn waves-effect waves-light" value="submit" name="submit" type="submit">Login
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </form>
         </div>
     </main>
@@ -69,6 +77,7 @@
         </div>
     </footer>
     <!--Import jQuery before materialize.js-->
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
@@ -76,5 +85,9 @@
 
 
 
+
 </html>
+
+
+
 

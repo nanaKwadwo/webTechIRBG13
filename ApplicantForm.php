@@ -14,12 +14,8 @@
 <body>
     <header>
         <?php 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/controller/admin_controller.php";
-include_once($path);
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/model/applicants.php";
-include_once($path);
+include_once("pages/controller/admin_controller.php");
+include_once("pages/model/applicants.php");
 $id = $_REQUEST['id'];
 $username = $_REQUEST['username'];
 $applicant = new applicants();
@@ -47,23 +43,29 @@ $data = $applicant->fetch();
                                 <label for="first_name">Password</label>
                             </div>
                             <div class="input-field col s4">
-                                <select multiple name = "userstatus[]">
+                                <select multiple name="userstatus[]">
                                     <option value="" disabled selected>Choose your option</option>
-                                    <option value="Admin" <?php if(strpos($data['user_status'],"Admin")!==false){echo "selected";} ?>>Admin</option>
-                                    <option value="Reviewer" <?php if(strpos($data['user_status'],"Reviewer")!==false){echo "selected";} ?>>Reviewer</option>
-                                    <option value="Student" <?php if(strpos($data['user_status'],"Student")!==false){echo "selected";} ?>>Student</option>
+                                    <option value="Admin" <?php if (strpos($data['user_status'], "Admin") !== false) {
+    echo "selected";
+} ?>>Admin</option>
+                                    <option value="Reviewer" <?php if (strpos($data['user_status'], "Reviewer") !== false) {
+    echo "selected";
+} ?>>Reviewer</option>
+                                    <option value="Student" <?php if (strpos($data['user_status'], "Student") !== false) {
+    echo "selected";
+} ?>>Student</option>
                                 </select>
                                 <label>User Status</label>
                             </div>
                             <div>
-                               <p>
-                                  <input name="isApplicant" value = 1 type="radio" id="test1" checked = "checked"/>
-                                     <label for="test1">Is Applicant</label>
-                                  </p>
-                                     <p>
-                                   <input name="isApplicant" value = 0 type="radio" id="test2" />
-                                  <label for="test2">Not Applicant</label>
-                                 </p>
+                                <p>
+                                    <input name="isApplicant" value=1 type="radio" id="test1" checked="checked" />
+                                    <label for="test1">Is Applicant</label>
+                                </p>
+                                <p>
+                                    <input name="isApplicant" value=0 type="radio" id="test2" />
+                                    <label for="test2">Not Applicant</label>
+                                </p>
                             </div>
                         </div>
                         <button class="btn waves-effect waves-light" type="submit">Update

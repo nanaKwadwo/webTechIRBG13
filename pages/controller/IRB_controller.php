@@ -30,22 +30,32 @@ if (isset($_REQUEST['applicant_id'])) {
     $applicationState = "SAVE";
     $review = "PENDING_REVIEW";
     echo "include";
-    
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/irb_application_class.php";
-    include_once($path);
-    
+
+    include_once("../model/irb_application_class.php");
+
+
     echo "Adding Application";
     $application = new irb_application();
     $application->addApplication($applicantId, $title, $principalInvestigator, $coprincipaliInvestigator, $grants, $requestForExemption, $characteristics, $specialCases,
-	$recruitment, $exemptInfo, $researchMethod, $dataSources, $researchCriteria, $procedure, $confidentalityinfo,
-	$hanglingData, $dissemination, $informed, $confidetiality, $comphenstion, $benefits,
-	$rationale, $applicationState,$review);
+    $recruitment, $exemptInfo, $researchMethod, $dataSources, $researchCriteria, $procedure, $confidentalityinfo,
+    $hanglingData, $dissemination, $informed, $confidetiality, $comphenstion, $benefits,
+    $rationale, $applicationState, $review);
     echo "Application Added";
-    
-    header('Location: ../../User.php');
-    
 
+    header('Location: ../../User.php');
+
+
+}
+
+function getReviewers() {
+    include 'pages/model/reviewers.php';
+    $rev = new reviewers();
+    $result = $rev->getReviewers();
+    if ($result != null) {
+        while ($row = $rev->fetch()) {
+                echo "<option value=\"{$row['user_id']}\">{$row['username']}</option>";
+        }
+    }
 }
 
 /*

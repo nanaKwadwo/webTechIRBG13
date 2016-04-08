@@ -40,9 +40,7 @@
             </div>
             <div id="applications" class="col s12">
                 <?php 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WT_SW Project/pages/controller/reviewer_controller.php";
-include_once($path);
+include_once("pages/controller/reviewer_controller.php");
 getApplications();
 ?>
             </div>

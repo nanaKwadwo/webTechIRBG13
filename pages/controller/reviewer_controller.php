@@ -1,21 +1,17 @@
+<?php session_start(); ?>
 <?php 
 /*
 getApplications, a method that calls a method to get the applications given the reviewer-id of that user
 */
 function getApplications() {
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/applications.php";
-    include_once($path);
+    include_once("pages/model/applications.php");
     
-    if (isset($_REQUEST['usercode'])) {
-        $usercode = $_REQUEST['usercode'];
-        $app = new applications($usercode);
-    }else{
         $app = new applications();
-    }
-
+        $usercode = $_SESSION["user_id"]; 
+        $app = new applications();
+        //echo "<script type='text/javascript'>alert($usercode)</script>";
     
-    $result = $app->getApplications();
+    $result = $app->getApplicationsRev($usercode);
     if ($result == false) {
         echo "<h4>No applications to display yet</h4>";
     } else {
@@ -30,6 +26,7 @@ function getApplications() {
         </thead>
         <tbody>
 ";
+    $rowcount = 0;
         while ($row = $app->fetch()) {
             echo "          
           <tr>
@@ -37,6 +34,10 @@ function getApplications() {
             <td>{$row['TITLE_OF_PROJECT']}</td>
             <td><a class=\"waves-effect waves-light btn\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
           </tr>";
+          $rowcount++;
+        }
+        if($rowcount == 0){
+            echo "<td>No applications to display yet</td>";
         }
         echo "        
             </tbody>

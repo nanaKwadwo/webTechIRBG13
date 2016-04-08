@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -38,7 +39,7 @@
                             <label>Choose one</label>
                         </div>
                     </div>
-                    <input type="hidden" name="applicant_id" value="<?php if(isset($_REQUEST['user_id'])){echo $_REQUEST['user_id'];}?>">
+                    <input type="hidden" name="applicant_id" value="<?php echo $_SESSION["user_id"];?>">
                     <div>
                         <div class="row" >
                             <div class="input-field col s12">
@@ -52,7 +53,10 @@
                         <div class="input-field col s12">
                             <select name="principal_investigator" form="irbform">
                                 <option value="" disabled selected>Choose your Principal Investigator</option>
-                                <option value="1">Option 1</option>
+                                <?php 
+                                include_once 'pages/controller/IRB_controller.php';
+                               getReviewers();
+                                ?>
                             </select>
                             <label>Principal Investigator</label>
                         </div>
@@ -60,7 +64,10 @@
                     <div class="input-field col s12">
                         <select multiple name="coprincipal_investigator" form="irbform">
                             <option value="" disabled selected>Not Selected</option>
-                            <option value="1">Option 1</option>
+                                <?php 
+                               //include_once 'pages/controller/IRB_controller.php';
+                               //getReviewers();
+                                ?>
                         </select>
                         <label>Co-Principal Investigator</label>
                     </div>

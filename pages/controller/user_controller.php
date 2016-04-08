@@ -1,22 +1,18 @@
+<?php session_start(); ?> 
 <?php 
 
 /*
 getApplications, a method that calls a method to get the applications given the user-id of that user
 */
 function getApplications() {
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/WT_SW Project/pages/model/applications.php";
-    include_once($path);
+    include_once("pages/model/applications.php");
     
-    if (isset($_REQUEST['usercode'])) {
-        $usercode = $_REQUEST['usercode'];
-        $app = new applications($usercode);
-    }else{
         $app = new applications();
-    }
-
+        $usercode = $_SESSION["user_id"]; 
+        $app = new applications();
+        //echo "<script type='text/javascript'>alert($usercode)</script>";
     
-    $result = $app->getApplications();
+    $result = $app->getApplications($usercode);
     if ($result == false) {
         echo "<h4>No applications to display yet</h4>";
     } else {

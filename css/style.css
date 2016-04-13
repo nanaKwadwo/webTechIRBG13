@@ -1,0 +1,390 @@
+html { 
+  background: url('../images/Dark.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@font-face{
+    font-family: raleway-1;
+    src: url("../fonts/Raleway-Light.ttf");
+}
+@font-face{
+    font-family: raleway-2;
+    src: url("../fonts/Raleway-Thin.ttf");
+}
+body{
+    margin: 0px;
+    height: 100%;
+}
+.container{
+    font-family: raleway-2; 
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.container-2{
+    height: 100%;
+    font-family: raleway-2; 
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;  
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 3%;
+    flex-basis: auto;
+    width: 40%;
+    height: 550px;
+    background-color: rgba(170,119,51,0.3);
+}
+.info p{
+    text-align: center;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3%;
+    flex-basis: auto;
+    width: 40%;
+    height: 550px;
+    background-color: rgba(119,102,51,0.3);
+}
+p{
+    font-size: 30px;
+    text-align: right;
+    padding-right: 10px;
+}
+.subhead{
+  font-size: 18px;
+  margin: 10%; 
+  text-align: center;
+}
+.head{
+    font-size: 30px;
+    text-align: center;
+}
+.formdet{
+    display: flex;
+    padding: 10%;
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+input[type=text]{
+    font-size: 15px;
+    background-image:url('../images/user.png');
+    background-repeat:no-repeat;
+    background-position:6px;
+    background-size: 10px 10px;
+    font-family: raleway-1;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-top: 2px solid #aa7733;
+    border-bottom: 2px solid #aa7733;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    width: 100%;
+    outline: none;
+}
+ input[type=password]{
+    font-size: 15px;
+    background-image:url('../images/lock.png');
+    background-repeat:no-repeat;
+    background-position:6px;
+    background-size: 10px 10px;
+    font-family: raleway-1;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-top: 2px solid #aa7733;
+    border-bottom: 2px solid #aa7733;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left:30px;
+    width: 100%;
+    outline: none; 
+ }
+input[type=button], input[type=submit], input[type=reset] {
+    width: auto;
+    background-color: transparent;
+    border: none;
+    border: 2px solid #aa7733;
+    border-radius: 30px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    outline: none;
+}
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover{
+    background-color: #aa7733;
+    color: white
+}
+select{
+    font-size: 18px;
+    font-family: raleway-1;
+    border: none;
+    border-bottom: 2px solid #aa7733;
+    background-color: transparent;
+    outline: none;
+}
+optgroup{
+    background-color: transparent;
+}
+
+
+.body {
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom:2%; 
+  display: flex;
+  flex: 1;
+}
+.content {
+  display:flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  font-family: raleway-2;
+  color: white;
+  flex: 1;
+  height: 600px;
+  background-color: rgba(119,102,51,0.3);
+  overflow: auto;
+}
+
+.nav {
+  font-family: raleway-2;
+  color: white;
+  flex: 0 0 15em;
+  height: 600px;
+  background-color: rgba(170,119,51,0.3);
+}
+a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+   }
+ul{
+    list-style-type: none;
+}
+.menuItems{
+    margin-top: 20%;
+}
+li{
+    padding: 5%;
+}
+.heading{
+    background-color:  rgba(170,119,51,0.5);
+    font-size: 30px;
+    text-align: center;
+    padding: 7%;
+}
+.app{
+    margin: 2%;
+    background-image:url('../images/doc.png');
+    background-repeat:no-repeat;
+    background-position-x: 50px;
+    background-position-y: 20px;
+    background-size: 100px 100px;
+    display: flex;  
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color:  rgba(170,119,51,0.4);
+    width: 200px;
+    height:200px;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.3);
+}
+.btns{
+    padding: 20px;
+}
+button{
+    outline: none;
+    font-size: 15px;    
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(255,255,255,0.1);
+    border: none;
+    font-family: raleway-1;
+    color: white;
+    border-radius: 20px;
+}
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+:-ms-input-placeholder {  
+   color: white;  
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.search{
+    display: flex;
+}
+.search input{
+    background-color: rgba(170,119,51,0.3);
+    border: none;
+    background-image: none;
+}
+.search a{
+    margin-top: 10px;   
+    background-color: rgba(170,119,51,0.3);
+    padding: unset;
+    border-radius: unset;
+    background-image:url('../images/search.png');
+    background-repeat:no-repeat;
+    background-size: 30px 30px;
+    background-position-x: 10px;
+    background-position-y: 8px;
+    width: 100px;
+    height: 43px;
+}
+.add{
+    font-family: raleway-1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.add a{
+    width: auto;
+    background-color:rgba(255,255,255,0.1);
+    border: none;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    outline: none;
+}
+.add a{
+    background-color: rgba(255,255,255,0.1);
+    color: white
+}
+.app-2{
+    margin: 2%;
+    background-image:url('../images/user-2.png');
+    background-repeat:no-repeat;
+    background-position-x: 50px;
+    background-position-y: 10px;
+    background-size: 100px 100px;
+    display: flex;  
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color:  rgba(170,119,51,0.4);
+    width: 200px;
+    height:200px;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.3);
+}
+.content-2{
+  display:flex;
+  flex-direction: column; 
+  flex-wrap: nowrap;
+  font-family: raleway-2;
+  color: white;
+  flex: 1;
+  height: 600px;
+  background-color: rgba(119,102,51,0.3);
+  overflow-x: hidden;
+  overflow-y: auto;
+    
+}
+.doc-start{
+   width: 100%;
+   font-size: 20px; 
+   font-family: raleway-1;
+   text-align: center;
+   padding: 1%;
+}
+
+.form-el input[type=text] {
+    background-image: none;
+    font-size: 15px;
+    font-family: raleway-1;
+    color: white;
+    border: none;
+    border-left: 2px solid rgba(255, 255, 255, 0.2); 
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    outline: none;
+    width: 60%;
+    text-align: left;
+}
+.section{
+    font-size: 20px;
+    color: white;
+    padding: 2%;
+    margin: 2%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color:  rgba(170,119,51,0.2);
+    width: 90%;
+    height: auto;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.3);
+}
+.section textarea{
+    background-color:transparent;
+    font-size: 15px;
+    font-family: raleway-1;
+    color: white;
+    border: none;
+    border-left: 2px solid rgba(255, 255, 255, 0.2); 
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    outline: none;
+    width: 60%;
+    text-align: left;
+}
+.submit-btn{
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}

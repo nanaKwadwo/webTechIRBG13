@@ -9,28 +9,15 @@ include 'pages/model/applicants.php';
     if ($result == false) {
         echo "<h4>No applicants to display yet</h4>";
     } else {
-        echo "     
-      <table>
-        <thead>
-          <tr>
-              <th data-field=\"id\">Applicant Id</th>
-              <th data-field=\"name\"> Applicant Username</th>
-              <th data-field=\"name\">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-";
         while ($row = $applicant->fetch()) {
-            echo "          
-          <tr>
-            <td>{$row['user_id']}</td>
-            <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
-          </tr>";
+            echo "             <div class=\"app-2\">
+                <label>{$row['username']}</label>
+                <div class=\"btns\">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
+            </div>";
         }
-        echo "        
-            </tbody>
-           </table>";
     }
 
 

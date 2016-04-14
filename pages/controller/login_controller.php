@@ -6,7 +6,7 @@
 include_once("../model/adb.php");
 include_once("userlogin_class.php");
 $obj = new userlogin_class();
-if ($_POST['submit']) {
+if ($_POST['username']) {
     if (isset($_POST['usersgroup'])) {
         $username = addslashes($_POST['username']);
         $password = addslashes($_POST['password']);
@@ -30,16 +30,21 @@ if ($_POST['submit']) {
             }
 
             if ($count_rows == 0 || $count_rows > 1) {
-                header("location:../../errorlogin.php");
+                
+         $message = "Incorrect Username or Password";
+echo "<script type='text/javascript'>alert('$message');</script>";
+                       header("location:../../index.php");
             }
 
             if ($count_rows == 1) {
                 if ($usergroup == 'applicant') {
                     if ($is_applicant == 0) {
-                        header("location:../../errorlogin.php");
+         $message = "Incorrect Username or Password";
+echo "<script type='text/javascript'>alert('$message');</script>";
+                                header("location:../../index.php");
                     } else {
                         $_SESSION["user_id"] = $userId;
-                        header("location:../../User.php");
+                        header("location:../../Applicant.php");
                         }
                 }
                 if ($usergroup == 'reviewer') {
@@ -48,11 +53,15 @@ if ($_POST['submit']) {
                 }
                 if ($usergroup == 'admin') {
                      $_SESSION["user_id"] = $userId;
-                    header("location:../../AdminPage.php");
+                    header("location:../../Admin.php");
                 }
             }
 
         }
-    } else header("location:../../errorlogin.php");
+    } else {
+         $message = "Incorrect Username or Password";
+echo "<script type='text/javascript'>alert('$message');</script>";
+        header("location:../../index.php");
+    }
 }
 ?>

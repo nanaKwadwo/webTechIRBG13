@@ -9,13 +9,10 @@
 <body>
     <div class="body">
         <main class="content">
-            <div class="app-2">
-                <label for="">Username</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
+            <?php 
+include_once("pages/controller/admin_controller.php");
+getApplicants();
+?>
         </main>
         <aside class="nav">
             <div class="heading">Administrator</div>

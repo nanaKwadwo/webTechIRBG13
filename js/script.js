@@ -1,3 +1,4 @@
+
 function search() {
     var searchtext = document.getElementById('searchtxt').value;
     var ajaxUrl = "pages/controller/admin_controller.php?searchtext=";
@@ -91,4 +92,5 @@ function getApplicationsReviewerComplete(xhr, status) {
 }
     container.innerHTML=div;
     return
+
 }

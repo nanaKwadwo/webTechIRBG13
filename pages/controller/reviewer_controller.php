@@ -13,6 +13,7 @@ if(isset($_REQUEST['cmd'])){
 }
 function getApplications() {
     include_once("../model/applications.php");
+
     
         $app = new applications();
         $usercode = $_SESSION["user_id"]; 
@@ -30,6 +31,7 @@ function getApplications() {
         } 
         echo json_encode($arr); 
     }
+
 }
 /*
 getSchedule, a method that gets the schedule given the reviewer_id of that reviewer

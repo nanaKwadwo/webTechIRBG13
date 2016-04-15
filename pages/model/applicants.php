@@ -26,12 +26,14 @@ class applicants extends adb {
 
         return $this->query($strQuery);
     }
+
     
     function search($search) {
         $strQuery = "SELECT * From users where username LIKE '%$search%' ";
 
         return $this->query($strQuery);
     }
+
     /**
 *function to update the information of the applicants
 *@pram $id is the id of the applicant

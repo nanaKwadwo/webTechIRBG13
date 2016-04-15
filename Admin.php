@@ -8,28 +8,25 @@
 
 <body>
     <div class="body">
-        <main class="content">
-            <?php 
-include_once("pages/controller/admin_controller.php");
-getApplicants();
-?>
+        <main class="content" id = "content">
         </main>
         <aside class="nav">
             <div class="heading">Administrator</div>
             <div class="search">
-                <input type="text" placeholder="Search">
-                <a href=""></a>
+                <input type="text" placeholder="Search" id="searchtxt">
+                <button onclick="search()"></button>
             </div>
             <div class="menuItems">
                 <ul>
-                    <li><a href="#">Applicants</a></li>
-                    <li><a href="#">Reviewers</a></li>
-                    <li><a href="#">Sponsors</a></li>
+                    <li><button onclick="getApplicants()">Applicants</button></li>
+                    <li><button onclick="getNonApplicants()">Non Applicants</button></li>
+                    <li><button onclick="getReviewers()">Reviewers</button></li>
+                    <li><button href="#">Sponsors</button></li>
                 </ul>
             </div>
         </aside>
     </div>
     <script type="text/javascript" src="js/script.js"></script>
-</body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script></body>
 
 </html>

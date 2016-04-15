@@ -2,91 +2,70 @@
 /*
 *function getApplicants, gives a list of eligible applicants
 */
+if(isset($_REQUEST['cmd'])){
+    $command = $_REQUEST['cmd'];
+    	switch($command){
+		case 1:
+			getApplicants();		
+			break;
+        case 2:
+			getNonApplicants();		
+			break;
+        case 3:
+			getReviewers();		
+			break;
+	}
+}
+
 function getApplicants() {
-include 'pages/model/applicants.php';
+include '../model/applicants.php';
     $applicant = new applicants();
     $result = $applicant->getApplicants();
-    if ($result == false) {
-        echo "<h4>No applicants to display yet</h4>";
+     if ($result == false) {      
+        echo "{\"result\":false}";
     } else {
+        $arr= array();
         while ($row = $applicant->fetch()) {
-            echo "             <div class=\"app-2\">
-                <label>{$row['username']}</label>
-                <div class=\"btns\">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>";
-        }
-    }
+            $json =  "{\"user_id\":{$row['user_id']},\"username\":\"{$row['username']}\"}";
+           array_push($arr,$json);
+        } 
+        echo json_encode($arr); 
+}
 
 
 }
 function getReviewers() {
-include 'pages/model/reviewers.php';
+include '../model/reviewers.php';
     $reviewers = new reviewers();
     $result = $reviewers->getReviewers();
-    if ($result == false) {
-        echo "<h4>No reviewers to display yet</h4>";
+         if ($result == false) {      
+        echo "{\"result\":false}";
     } else {
-        echo "     
-      <table>
-        <thead>
-          <tr>
-              <th data-field=\"id\">Applicant Id</th>
-              <th data-field=\"name\"> Applicant Username</th>
-              <th data-field=\"name\">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-";
+        $arr= array();
         while ($row = $reviewers->fetch()) {
-            echo "          
-          <tr>
-            <td>{$row['user_id']}</td>
-            <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-light btn\" href=\"ApplicantForm.php?id={$row['user_id']}&username={$row['username']}\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
-          </tr>";
-        }
-        echo "        
-            </tbody>
-           </table>";
+            $json =  "{\"user_id\":{$row['user_id']},\"username\":\"{$row['username']}\"}";
+           array_push($arr,$json);
+        } 
+        echo json_encode($arr);
     }
 
 
 }
 
 function getNonApplicants() {
+    include '../model/applicants.php';
     $applicant = new applicants();
     $result = $applicant->getNonApplicants();
-    if ($result == false) {
-        echo "<h4>No Nonapplicants to display yet</h4>";
+     if ($result == false) {      
+        echo "{\"result\":false}";
     } else {
-        echo "     
-      <table>
-        <thead>
-          <tr>
-              <th data-field=\"id\">Non-Applicant Id</th>
-              <th data-field=\"name\"> Non-Applicant Username</th>
-              <th data-field=\"name\">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-";
+        $arr= array();
         while ($row = $applicant->fetch()) {
-            echo "          
-          <tr>
-            <td>{$row['user_id']}</td>
-            <td>{$row['username']}</td>
-            <td><a class=\"waves-effect waves-teal btn-flat\" href=\"pages/controller/admin_controller.php?user_id={$row['user_id']}\" >Add As Applicant</a></td>
-          </tr>";
-        }
-        echo "        
-            </tbody>
-           </table>";
-    }
-
-
+            $json =  "{\"user_id\":{$row['user_id']},\"username\":\"{$row['username']}\"}";
+           array_push($arr,$json);
+        } 
+        echo json_encode($arr); 
+}
 }
 
 /*
@@ -137,7 +116,23 @@ if (isset($_REQUEST['username']) and isset($_REQUEST['password'])) {
 
 }
 
-
+if(isset($_REQUEST['searchtext'])){
+    include_once("../model/applicants.php");
+    $app= new applicants();
+    $text = $_REQUEST['searchtext'];
+    $result = $app->search($text);
+    $response = "";
+     if ($result == false) {      
+        echo "{\"result\":false}";
+    } else {
+        $arr= array();
+        while ($row = $app->fetch()) {
+            $json =  "{\"user_id\":{$row['user_id']},\"username\":\"{$row['username']}\"}";
+           array_push($arr,$json);
+        } 
+        echo json_encode($arr); 
+}
+}
 /*
 editReviewer, modal to make a staff a reviewer
 */

@@ -18,10 +18,10 @@ session_start();
             <div class="heading">Applicant</div>
             <div class="search">
                 <input type="text" placeholder="Search">
-                <a href=""></a>
+                <button onclick="search()"></button>
             </div>
             <div class="add">
-                <a href="">Add Application</a>
+                <a href="IrbDoc.php">Add Application</a>
             </div>
             <div class="menuItems">
                 <ul>

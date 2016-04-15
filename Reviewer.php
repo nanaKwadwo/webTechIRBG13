@@ -14,7 +14,7 @@
             <div class="heading">Reviewer</div>
             <div class="search">
                 <input type="text" placeholder="Search">
-                <a href=""></a>
+                <button onclick="search()"></button>
             </div>
             <div class="menuItems">
                 <ul>

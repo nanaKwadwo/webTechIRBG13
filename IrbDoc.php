@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,9 +14,10 @@
         <main class="content-2">
             <div class="doc-start">Ashesi University</div>
             <div class="doc-start">Request for Human subjects Approval</div>
-            <form class="form-el" action="">
+            <form class="form-el" action="pages/controller/IRB_controller.php" id="irbform">
                 <div class="section">
                     <label>User Group</label>
+                    <input type="hidden" value="<?php echo $_SESSION["user_id"]?>"  name="applicant_id">
                     <select name="usergroup" form="irbform">
                         <option value="" disabled selected>User Group</option>
                         <option value="student">Student</option>
@@ -124,7 +128,7 @@
                 <a href="">Attach</a>
             </div>
             <div class="add">
-                <a href="">Save</a>
+                <button  type="submit" form="irbform" value="Submit">Save</button>
             </div>
             <div class="add">
                 <a href="">Submit</a>

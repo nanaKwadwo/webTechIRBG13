@@ -42,7 +42,7 @@ if (isset($_REQUEST['applicant_id'])) {
     $rationale, $applicationState, $review);
     echo "Application Added";
 
-    header('Location: ../../User.php');
+    header('Location: ../../Applicant.php');
 
 
 }

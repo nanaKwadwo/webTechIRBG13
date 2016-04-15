@@ -4,43 +4,30 @@
 /*
 getApplications, a method that calls a method to get the applications given the user-id of that user
 */
+if(isset($_REQUEST['cmd'])){
+    $command = $_REQUEST['cmd'];
+    	switch($command){
+		case 1:
+			getApplications();		
+			break;
+	}
+}
 function getApplications() {
-    include_once("pages/model/applications.php");
-    
-        $app = new applications();
-        $usercode = $_SESSION["user_id"]; 
-        $app = new applications();
-        //echo "<script type='text/javascript'>alert($usercode)</script>";
-    
+    include_once("../model/applications.php"); 
+    $app = new applications();
+    $usercode = $_SESSION["user_id"]; 
+    $app = new applications();
     $result = $app->getApplications($usercode);
-    if ($result == false) {
-        echo "<h4>No applications to display yet</h4>";
+    if ($result == false) {      
+        echo "{\"result\":false}";
     } else {
-        echo "     
-      <table>
-        <thead>
-          <tr>
-              <th data-field=\"id\">Application Id</th>
-              <th data-field=\"name\"> Application Title</th>
-              <th data-field=\"name\">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-";
+        $arr= array();
         while ($row = $app->fetch()) {
-            echo "          
-          <tr>
-            <td>{$row['APPLICATION_ID']}</td>
-            <td>{$row['TITLE_OF_PROJECT']}</td>
-            <td><a class=\"waves-effect waves-light btn\">Edit</a> <a class=\"waves-effect waves-light btn\">Delete</td>
-          </tr>";
-        }
-        echo "        
-            </tbody>
-           </table>";
+            $json ="{\"app_id\":{$row['APPLICATION_ID']},\"app_title\":\"{$row['TITLE_OF_PROJECT']}\"}";
+           array_push($arr,$json);
+        } 
+        echo json_encode($arr); 
     }
-
-
 }
 
 

@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,84 +11,8 @@
 
 <body>
     <div class="body">
-        <main class="content">
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </div>
-            </div>
+        <main class="content" id="content">
+            
         </main>
         <aside class="nav">
             <div class="heading">Applicant</div>
@@ -98,13 +25,14 @@
             </div>
             <div class="menuItems">
                 <ul>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Schedule</a></li>
+                    <li><button onclick="getApplications()">Applications</button></li>
+                    <li><button href="#">Schedule</button></li>
                 </ul>
             </div>
         </aside>
     </div>
     <script type="text/javascript" src="js/script.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 
 </html>

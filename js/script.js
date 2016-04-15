@@ -66,3 +66,29 @@ function getApplicationsComplete(xhr, status) {
     container.innerHTML=div;
     return
 }
+function getApplicationsReviewer(){
+    console.log("Done")
+    var ajaxUrl = "pages/controller/reviewer_controller.php?cmd=1";
+    $.ajax(ajaxUrl,{async:true,complete:getApplicationsReviewerComplete});
+}
+
+function getApplicationsReviewerComplete(xhr, status) {
+    if (status != "success") {
+        console.log("Error");
+        return;
+    }
+    var obj = $.parseJSON(xhr.responseText);
+    var container = document.getElementById('content');
+    container.innerHTML="";
+    var div = "";
+    var newdiv = "";
+    for(var key in obj){
+        var jsondata = $.parseJSON(obj[key]);
+        for(data in jsondata){
+        newdiv= "<div class=\"app\"><label>"+jsondata.app_title +"</label><div class=\"btns\"><button>Review</button><button>"+jsondata.app_status+"</button></div></div>";
+    }
+    div = div+newdiv;
+}
+    container.innerHTML=div;
+    return
+}

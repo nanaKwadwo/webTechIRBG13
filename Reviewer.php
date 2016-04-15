@@ -7,15 +7,8 @@
 </head>
 
 <body>
-    <div class="body">
-        <main class="content">
-            <div class="app">
-                <label for="">Application</label>
-                <div class="btns">
-                    <button>Review</button>
-                     <button>Pending</button>
-                </div>
-            </div>
+    <div class="body" >
+        <main class="content" id="content">
         </main>
         <aside class="nav">
             <div class="heading">Reviewer</div>
@@ -25,13 +18,14 @@
             </div>
             <div class="menuItems">
                 <ul>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Schedule</a></li>
+                    <li><button onclick="getApplicationsReviewer()">Applications</a></li>
+                    <li><button href="#">Schedule</button></li>
                 </ul>
             </div>
         </aside>
     </div>
     <script type="text/javascript" src="js/script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 
 </html>

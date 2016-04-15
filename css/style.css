@@ -199,7 +199,7 @@ li{
     background-image:url('../images/doc.png');
     background-repeat:no-repeat;
     background-position-x: 50px;
-    background-position-y: 20px;
+    background-position-y: 5px;
     background-size: 100px 100px;
     display: flex;  
     flex-direction: column;
@@ -212,6 +212,9 @@ li{
 }
 .btns{
     padding: 20px;
+}
+.btns button{
+    margin: 1px;
 }
 button{
     outline: none;

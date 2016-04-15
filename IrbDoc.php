@@ -125,13 +125,13 @@ session_start();
             <div class="heading">IRB Document</div>
             <br>
             <div class="add">
-                <a href="">Attach</a>
+                <button href="">Attach</button>
             </div>
             <div class="add">
                 <button  type="submit" form="irbform" value="Submit">Save</button>
             </div>
             <div class="add">
-                <a href="">Submit</a>
+                <button href="">Submit</button>
             </div>
         </aside>
     </div>

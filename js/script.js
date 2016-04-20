@@ -94,3 +94,11 @@ function getApplicationsReviewerComplete(xhr, status) {
     return
 
 }
+function saveform(){
+    document.getElementById("statcolumn").value="Save";
+    document.getElementById("irbForm").submit();
+}
+function submitform() {
+    document.getElementById("statcolumn").value="Submit";
+    document.getElementById("irbForm").submit();
+}

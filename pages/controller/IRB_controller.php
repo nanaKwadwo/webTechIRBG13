@@ -27,7 +27,7 @@ if (isset($_REQUEST['applicant_id'])) {
     $comphenstion = $_REQUEST['comphenstion'];
     $benefits = $_REQUEST['benefits'];
     $rationale = $_REQUEST['rationale'];
-    $applicationState = "SAVE";
+    $applicationState = $_REQUEST['status'];
     $review = "PENDING_REVIEW";
     echo "include";
 

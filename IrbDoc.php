@@ -119,6 +119,7 @@ session_start();
                     <label for="textarea1"> Rationale for Exclusion of Required element(Optional)</label>
                     <textarea name="rationale" form="irbform"></textarea>
                 </div>
+                
             </form>
         </main>
         <aside class="nav">
@@ -128,10 +129,11 @@ session_start();
                 <button href="">Attach</button>
             </div>
             <div class="add">
-                <button  type="submit" form="irbform" value="Submit">Save</button>
+                <input type="hidden" value="" form="irbform" name="status" id="statcolumn">
+                <button   form="irbform" onclick="saveform()" value="Save">Save</button>
             </div>
             <div class="add">
-                <button href="">Submit</button>
+                <button form="irbform" onclick="submitform()" value="Submit">Submit</button>
             </div>
         </aside>
     </div>

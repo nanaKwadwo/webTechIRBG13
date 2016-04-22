@@ -126,23 +126,28 @@ function getEditFormComplete(xhr, status) {
     btn.innerHTML=`<button>Save Application</button>`;
     container.innerHTML = "";
     var div = "";
+    var name = 1;
+    var prefix = "A"
     for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
+            prefix=prefix+name;
             div=div+`<div class="section">
-                    <label for="textarea1" id="name">`+key+`</label>
-                    <textarea id="feild" form="irbform" >`+obj[key]+`</textarea>
-                    <button onclick="saveChange(`+id+`)">Save</button>
+                    <label for="textarea1" id="`+prefix+`">`+key+`</label>
+                    <textarea id="`+name+`" form="irbform" >`+obj[key]+`</textarea>
+                    <button onclick="saveChange(`+id+`,`+prefix+`,`+name+`)">Save</button>
                 </div>`
         }
+        name=name+1;
+        prefix = "A";
     }
 
     container.innerHTML = div;
     return
 }
 
-function saveChange(id){
-    var name = document.getElementById('name').innerHTML;
-    var data = document.getElementById('feild').value;
+function saveChange(id,key,obj){
+    var name = key.innerHTML;
+    var data = document.getElementById(obj).value;
     var ajaxUrl = "pages/controller/IRB_controller.php?cmd=3&feild="+name+"&data="+data+"&id="+id;
     $.ajax(ajaxUrl, { async: true, complete: saveChangeComplete });
 }

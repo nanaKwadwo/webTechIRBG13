@@ -24,6 +24,8 @@ class applications extends adb {
         return $this->query($strQuery);
 
     }
+   
+    
 }
 
 ?>

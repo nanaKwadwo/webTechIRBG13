@@ -30,7 +30,15 @@ function addApplication($aId, $title, $pInvestigator, $cpInvestigator, $finance,
 	return $this->query($strQuery);
 }
 
-
+    function getApplication($applicationId){
+        $strQuery = "select * from irb_application where APPLICATION_ID = $applicationId";
+        return $this->query($strQuery);
+    }
+	
+function saveChange($id,$data,$feild){
+		$strQuery = "Update irb_application set `$feild`='$data' where `APPLICATION_ID` = $id";
+        return $this->query($strQuery);
+	}
 }
 
 /*

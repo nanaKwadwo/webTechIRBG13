@@ -11,10 +11,10 @@ session_start();
 
 <body>
     <div class="body">
-        <main class="content-2">
+        <main class="content-2" id="content-2">
             <div class="doc-start">Ashesi University</div>
             <div class="doc-start">Request for Human subjects Approval</div>
-            <form class="form-el" action="pages/controller/IRB_controller.php" id="irbform">
+            <form class="form-el" action="pages/controller/IRB_controller.php?cmd=1" id="irbform">
                 <div class="section">
                     <label>User Group</label>
                     <input type="hidden" value="<?php echo $_SESSION["user_id"]?>"  name="applicant_id">

@@ -20,7 +20,7 @@ session_start();
                 <input type="text" placeholder="Search">
                 <button onclick="search()"></button>
             </div>
-            <div class="add">
+            <div class="add" id="add_save">
                 <a href="IrbDoc.php">Add Application</a>
             </div>
             <div class="menuItems">

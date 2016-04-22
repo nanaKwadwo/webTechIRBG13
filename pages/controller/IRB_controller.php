@@ -2,7 +2,25 @@
 
 /*
 fillApplication, given an irb document, it can fill the reqired slots with the data
+*/ 
+if(isset($_REQUEST['cmd'])){
+    $command = $_REQUEST['cmd'];
+    	switch($command){
+		case 1:
+			saveApplication();		
+			break;
+        case 2:
+            getApplication();
+            break;
+        case 3:
+            saveChange();
+            break;
+	}
+}
+/*
+saveApplication, a method to save to the database with the status saved
 */
+function saveApplication(){
 if (isset($_REQUEST['applicant_id'])) {
     $applicantId = $_REQUEST['applicant_id'];
     $usergroup = $_REQUEST['usergroup'];
@@ -44,9 +62,7 @@ if (isset($_REQUEST['applicant_id'])) {
 
 
     header('Location: ../../Applicant.php');
-
-
-
+}
 }
 
 function getReviewers() {
@@ -60,15 +76,62 @@ function getReviewers() {
     }
 }
 
+
+
 /*
 getApplication, gets all the information in the document, for saving 
 */
+ function getApplication(){
+  include_once("../model/irb_application_class.php");
+  $application = new irb_application();
+  $applicationId = 0;
+  if(isset($_REQUEST['application_id'])){
+      $applicationId = $_REQUEST['application_id'];
+  }
+  $result=  $application->getApplication($applicationId);
+  $data = $application->fetch();
+  echo "{
+  \"id\": \"{$data['APPLICATION_ID']}\",
+  \"TITLE_OF_PROJECT\": \"{$data['TITLE_OF_PROJECT']}\",
+  \"SOURCES_OF_FINANCE\": \"{$data['SOURCES_OF_FINANCE']}\",
+  \"REQUEST_FOR_EXEMPTION\": \"{$data['REQUEST_FOR_EXEMPTION']}\",
+  \"CHARACTERISTICS_OF_SUBJECTS\": \"{$data['CHARACTERISTICS_OF_SUBJECTS']}\",
+  \"SPECIAL_CASES\": \"{$data['SPECIAL_CASES']}\",
+  \"METHOD_OF_RECRUITMENT\": \"{$data['METHOD_OF_RECRUITMENT']}\",
+  \"EXTENT_OF_INFORMATION\": \"{$data['EXTENT_OF_INFORMATION']}\",
+  \"RESEARCH_METHOD\": \"{$data['RESEARCH_METHOD']}\",
+  \"DATA_SOURCES\": \"{$data['DATA_SOURCES']}\",
+  \"RESEARCH_INVOLVES\": \"{$data['RESEARCH_INVOLVES']}\",
+  \"PROCEDURE_OF_RESEARCH\": \"{$data['PROCEDURE_OF_RESEARCH']}\",
+  \"CONFIDENTIALITY_OF_INFORMATION\": \"{$data['CONFIDENTIALITY_OF_INFORMATION']}\",
+  \"HANDLING_DATA\": \"{$data['HANDLING_DATA']}\",
+  \"DISSEMINATION_OF_DATA\": \"{$data['DISSEMINATION_OF_DATA']}\",
+  \"INFORMING_SUBJECT\": \"{$data['INFORMING_SUBJECT']}\",
+  \"CONFIDENTIALITY_PROCEDURES\": \"{$data['CONFIDENTIALITY_PROCEDURES']}\",
+  \"PARTICIPANT_REWARD\": \"{$data['PARTICIPANT_REWARD']}\",
+  \"PARTICIPANT_BENEFITS\": \"{$data['PARTICIPANT_BENEFITS']}\",
+  \"RATIONALE_FOR_EXCLUSION\": \"{$data['RATIONALE_FOR_EXCLUSION']}\"
+}";
+ }
 
-/*
-saveApplication, a method to save to the database with the status saved
-*/
 
 /*
 submitApplication, a method to send the application to the database with the status of submitted
 */
+function saveChange(){
+    if (isset($_REQUEST['data'])) {
+        $data = $_REQUEST['data'];
+        $feild = $_REQUEST['feild'];
+        $id = $_REQUEST['id'];
+    }
+  include_once("../model/irb_application_class.php");
+  $application = new irb_application();
+  $result=$application->saveChange($id,$data,$feild);
+  
+  if ($result==true) {
+      echo "{\"result\":\"1\"}";
+  }else {
+     echo "{\"result\":\"0\"}";
+  }
+}
 ?>

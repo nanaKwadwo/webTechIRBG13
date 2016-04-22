@@ -123,7 +123,7 @@ function getEditFormComplete(xhr, status) {
     delete obj['id'];
     var container = document.getElementById('content');
     var btn = document.getElementById('add_save');
-    btn.innerHTML=`<button>Save Application</button>`;
+    btn.innerHTML=`<button onclick="getApplications()">Back</button>`;
     container.innerHTML = "";
     var div = "";
     var name = 1;

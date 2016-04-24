@@ -1,7 +1,7 @@
 <?php 
 
 /*
-fillApplication, given an irb document, it can fill the reqired slots with the data
+Command Switch case
 */ 
 if(isset($_REQUEST['cmd'])){
     $command = $_REQUEST['cmd'];
@@ -116,7 +116,10 @@ getApplication, gets all the information in the document, for saving
 
 
 /*
-submitApplication, a method to send the application to the database with the status of submitted
+saveChange, a methos to take the new information as well as the the feild to be updated and using the id 
+update the irb application as required. Constructs the JSON which is sent to the ajax call
+cmd 3
+@author Delanyo Aborchie
 */
 function saveChange(){
     if (isset($_REQUEST['data'])) {

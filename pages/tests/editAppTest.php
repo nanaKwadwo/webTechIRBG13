@@ -1,15 +1,17 @@
 <?php
+    include "../model/irb_application_class.php";
+    
 class editAppTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function test()
     {
-        include_once("../model/irb_application_class.php");
+    
         // Arrange
         $a = new irb_application();
 
         // Act
-        $b = $a->saveChange(2,"TITLE_OF_PROJECT","newtitle");
+        $b = $a->saveChange(2,"newtitle","TITLE_OF_PROJECT");
 
         // Assert
         $this->assertEquals(true, $b);

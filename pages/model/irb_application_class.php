@@ -34,7 +34,14 @@ function addApplication($aId, $title, $pInvestigator, $cpInvestigator, $finance,
         $strQuery = "select * from irb_application where APPLICATION_ID = $applicationId";
         return $this->query($strQuery);
     }
-	
+/*
+saveChange updates the required feild of a specific application with the given date_add
+@author Delanyo Aborchie
+@param int $id used to identify the application to be edited
+@param string $data This is the new value of the selected field
+@param string $feild This is the specific sql feild to be updated
+@return boolean true if the query worked and false if the query failed
+*/	
 function saveChange($id,$data,$feild){
 		$strQuery = "Update irb_application set `$feild`='$data' where `APPLICATION_ID` = $id";
         return $this->query($strQuery);

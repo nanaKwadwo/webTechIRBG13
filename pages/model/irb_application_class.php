@@ -36,11 +36,52 @@ function addApplication($aId, $title, $pInvestigator, $cpInvestigator, $finance,
 	
 	return $this->query($strQuery);
 }
+/*An method that edits an existing Irb Application
 
+	@param string $strQuery sql string to execute
+	@return returns true if successful and false if not
+*/
+
+function editApplication ( $applicationID, $aId, $title, $pInvestigator, $cpInvestigator, $finance, $exemption, $subjects, $special,
+	$recruitement, $information, $method, $datasource, $researchInvoles, $procedure, $confidentiality,
+	$dataHandling, $dissemination, $informingSubjects, $confProcedure, $parcipantReward, $participantBenefits,
+	$rationale, $application_state,$reviewer_status, $attachment ){
 	
-}
+	$strQuery= "
+	UPDATE `irb_application` SET 
+	`APPLICANT_ID`=$aId,`TITLE_OF_PROJECT`='$title',`PRINCIPAL_INVESTIGATOR`='$pInvestigator',`CO-PRINCIPAL_INVESTIGATOR`='$cpInvestigator',
+	`SOURCES_OF_FINANCE`='$finance',`REQUEST_FOR_EXEMPTION`='$exemption',`CHARACTERISTICS_OF_SUBJECTS`='$subjects',`SPECIAL_CASES`='$special',
+	`METHOD_OF_RECRUITMENT`='$recruitement',`EXTENT_OF_INFORMATION`='$information',`RESEARCH_METHOD`='$method',`DATA_SOURCES`='$datasource',
+	`RESEARCH_INVOLVES`='$researchInvoles',`PROCEDURE_OF_RESEARCH`='$procedure',`CONFIDENTIALITY_OF_INFORMATION`='$confidentiality',
+	`HANDLING_DATA`='$dataHandling',`DISSEMINATION_OF_DATA`='$dissemination',`INFORMING_SUBJECT`='$informingSubjects',
+	`CONFIDENTIALITY_PROCEDURES`='$confProcedure',`PARTICIPANT_REWARD`='$parcipantReward',`PARTICIPANT_BENEFITS`='$participantBenefits',
+	`RATIONALE_FOR_EXCLUSION`='$rationale',`APPLICATION_STATE`='$application_state',`REVIEWER_STATUS`='$reviewer_status',`ATTACHMENTS`='$attachment' WHERE 
+   
+    `APPLICATION_ID`=$applicationID";
+   
+	return $this->query($strQuery);
+	}
+	
+	/*A function to delete an application from the irb table 
+	*@param: string $strQuery sql string to execute
+	*@return: returns true if successful and false if not successful 
+	*/
+	
+function deleteApplication($applicationID){
+	
+	$strQuery = "DELETE FROM `irb_application` WHERE `APPLICATION_ID`=$applicationID ";
+	
+	return $this->query($strQuery);
 
+	}	
+}
 /*
+$obj4= new irb_application();
+$obj4->deleteApplication(2);
+
+
+
+
 
 $obj2= new irb_application();
 $obj2->editApplication(3,73,'working','solved','solved',

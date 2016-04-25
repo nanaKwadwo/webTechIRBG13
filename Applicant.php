@@ -17,8 +17,8 @@ session_start();
         <aside class="nav">
             <div class="heading">Applicant</div>
             <div class="search">
-                <input type="text" placeholder="Search">
-                <button onclick="search()"></button>
+                <input type="text" placeholder="Search" id="search">
+                <button onclick="searchApplications()"></button>
             </div>
             <div class="add">
                 <a href="IrbDoc.php">Add Application</a>
@@ -32,7 +32,7 @@ session_start();
         </aside>
     </div>
     <script type="text/javascript" src="js/script.js"></script>
-     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script src="js/jqury.min.js"></script></body>
 </body>
 
 </html>

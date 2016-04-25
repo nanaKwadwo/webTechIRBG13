@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +15,10 @@
         </main>
         <aside class="nav">
             <div class="heading">Reviewer</div>
-            <div class="search">
-                <input type="text" placeholder="Search">
-                <button onclick="search()"></button>
+           <div class="search">
+			
+                <input type="text" placeholder="Search" id="search">
+                <button onclick="searchApplicationsRev()"></button>
             </div>
             <div class="menuItems">
                 <ul>

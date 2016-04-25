@@ -10,6 +10,7 @@ if(isset($_REQUEST['cmd'])){
 		case 1:
 			getApplications();		
 			break;
+			
 	}
 }
 function getApplications() {
@@ -30,8 +31,47 @@ function getApplications() {
     }
 }
 
+if(isset($_REQUEST['search'])){
+    include_once("../model/applications.php"); 
+    $app = new applications();
+    $usercode = $_SESSION["user_id"]; 
+    $app = new applications();
+	$text = $_REQUEST['search'];
+    $result = $app->search($usercode,$text);
+    if ($result == false) {      
+        echo "{\"result\":false}";
+    } else {
+        $arr= array();
+        while ($row = $app->fetch()) {
+            $json ="{\"app_id\":{$row['APPLICATION_ID']},\"app_title\":\"{$row['TITLE_OF_PROJECT']}\"}";
+           array_push($arr,$json);
+        } 
+		
+        echo json_encode($arr);
+	
+    }
+}
+
+if(isset($_REQUEST['searchtext'])){
+    include_once("../model/applicants.php");
+    $app= new applicants();
+    $text = $_REQUEST['searchtext'];
+    $result = $app->search($text);
+    $response = "";
+     if ($result == false) {      
+        echo "{\"result\":false}";
+    } else {
+        $arr= array();
+        while ($row = $app->fetch()) {
+            $json =  "{\"user_id\":{$row['user_id']},\"username\":\"{$row['username']}\"}";
+           array_push($arr,$json);
+        } 
+        echo json_encode($arr); 
+}
+}
 
 /*
+
 getSchedule, a method that gets the schedule given the user_id of that user
 */
 

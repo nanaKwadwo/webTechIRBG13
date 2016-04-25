@@ -15,9 +15,8 @@ if ($_POST['username']) {
 
 
         if (!$obj->login($usergroup, $username, $password)) {
-            echo "$username";
-            echo "$password";
-            echo "Error getting users..like der";
+        
+          
 
         } else {
 

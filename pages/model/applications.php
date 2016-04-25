@@ -24,6 +24,19 @@ class applications extends adb {
         return $this->query($strQuery);
 
     }
+	
+	 function search($usercode,$search) {
+        $strQuery = "SELECT * from irb_application where TITLE_OF_PROJECT LIKE '%$search%' and APPLICANT_ID='$usercode' ";
+
+        return $this->query($strQuery);
+    }
+	function searchRev($usercode,$search){
+		
+            $strQuery = "SELECT * from irb_application where TITLE_OF_PROJECT LIKE '%$search%' and  (`PRINCIPAL_INVESTIGATOR` = '$usercode' or `CO-PRINCIPAL_INVESTIGATOR` ='$usercode') and `APPLICANT_ID` != '$usercode' and APPLICATION_STATE = 'SUBMITTED' ";
+			return $this->query($strQuery);
+        }
+	
+	
 }
 
 ?>

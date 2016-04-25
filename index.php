@@ -12,7 +12,7 @@
             <div class="formdet">
                 <form method="POST" action="pages/controller/login_controller.php" id="login">
                     <input type="text" placeholder="Username" name="username" id="username"><input type="password" placeholder="Password" name="password"><label for="">Select User Group</label>
-                    <select name="usersgroup"><optgroup><option value="admin">Admin</option><option value="applicant">Appliacant</option><option value="reviewer">Reviewer</option></optgroup></select><div class="submit-btn">
+                    <select name="usersgroup"><optgroup><option value="admin">Admin</option><option value="applicant">Applicant</option><option value="reviewer">Reviewer</option></optgroup></select><div class="submit-btn">
                       <input type="submit" name="submit" value="submit"></div>
                 </form>
             </div>

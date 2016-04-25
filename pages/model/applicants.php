@@ -16,7 +16,7 @@ class applicants extends adb {
     }
     
     function getNonApplicants() {
-        $strQuery = "SELECT * FROM users WHERE is_applicant = 0";
+        $strQuery = "SELECT * FROM users WHERE is_applicant = 0 ORDER BY USERNAME";
 
         return $this->query($strQuery);
     }
@@ -33,6 +33,7 @@ class applicants extends adb {
 
         return $this->query($strQuery);
     }
+
 
     /**
 *function to update the information of the applicants

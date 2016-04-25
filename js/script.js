@@ -1,4 +1,3 @@
-
 function search() {
     var searchtext = document.getElementById('searchtxt').value;
     var ajaxUrl = "pages/controller/admin_controller.php?searchtext=";
@@ -6,6 +5,24 @@ function search() {
     $.ajax(ajaxUrl,{async:true,complete:returnComplete});
 }
 
+function getApplications(){
+    var ajaxUrl = "pages/controller/user_controller.php?cmd=1";
+    $.ajax(ajaxUrl,{async:true,complete:getApplicationsComplete});
+}
+
+function searchApplications(){
+    var searchtext = document.getElementById('search').value;
+    var ajaxUrl = "pages/controller/user_controller.php?search=";
+    ajaxUrl = ajaxUrl.concat(searchtext);
+    $.ajax(ajaxUrl,{async:true,complete:getApplicationsComplete});	
+}
+
+function searchApplicationsRev(){
+    var searchtext = document.getElementById('search').value;
+    var ajaxUrl = "pages/controller/reviewer_controller.php?search=";
+    ajaxUrl = ajaxUrl.concat(searchtext);
+    $.ajax(ajaxUrl,{async:true,complete:getApplicationsReviewerComplete});	
+}
 function getApplicants(){
     var ajaxUrl = "pages/controller/admin_controller.php?cmd=1";
     $.ajax(ajaxUrl,{async:true,complete:returnComplete});
@@ -27,6 +44,7 @@ function returnComplete(xhr, status) {
         console.log("Error");
         return;
     }
+	
     var obj = $.parseJSON(xhr.responseText);
     var container = document.getElementById('content');
     container.innerHTML="";
@@ -43,10 +61,8 @@ function returnComplete(xhr, status) {
     return
 }
 
-function getApplications(){
-    var ajaxUrl = "pages/controller/user_controller.php?cmd=1";
-    $.ajax(ajaxUrl,{async:true,complete:getApplicationsComplete});
-}
+
+
 function getApplicationsComplete(xhr, status) {
     if (status != "success") {
         console.log("Error");
@@ -68,7 +84,7 @@ function getApplicationsComplete(xhr, status) {
     return
 }
 function getApplicationsReviewer(){
-    console.log("Done")
+    console.log("Done");
     var ajaxUrl = "pages/controller/reviewer_controller.php?cmd=1";
     $.ajax(ajaxUrl,{async:true,complete:getApplicationsReviewerComplete});
 }

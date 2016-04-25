@@ -13,8 +13,9 @@
         <aside class="nav">
             <div class="heading">Administrator</div>
             <div class="search">
+			
                 <input type="text" placeholder="Search" id="searchtxt">
-                <button onclick="search()"></button>
+                <button onclick="search()" onsubmit="search()"></button>
             </div>
             <div class="menuItems">
                 <ul>
@@ -27,6 +28,6 @@
         </aside>
     </div>
     <script type="text/javascript" src="js/script.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script></body>
+    <script src="js/jqury.min.js"></script></body>
 
 </html>

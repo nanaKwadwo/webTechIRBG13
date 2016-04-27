@@ -116,7 +116,7 @@ getApplication, gets all the information in the document, for saving
 
 
 /*
-saveChange, a methos to take the new information as well as the the feild to be updated and using the id 
+saveChange, a method to take the new information as well as the the feild to be updated and using the id 
 update the irb application as required. Constructs the JSON which is sent to the ajax call
 cmd 3
 @author Delanyo Aborchie

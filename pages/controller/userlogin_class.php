@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
 */
 include_once("../model/adb.php");
@@ -15,13 +15,13 @@ class userlogin_class extends adb{
 	 */
 	
 	function login($usergroup,$username,$pword){
-		echo"$usergroup";
+		//echo"$usergroup";
 		
 		//$hash_pass = md5($pword.'@^%^TYGHys23233');
 		//$strQuery="select username from $usergroup where
 		// username='$username' and password='$pword'";
 		if($usergroup=="applicant"){
-				$strQuery="select * from users where username='$username'and is_applicant='1' and password='$pword' ";
+			$strQuery="select * from users where username='$username'and is_applicant='1' and password='$pword' ";
 			}
 			else{
 		$strQuery="select * from users where username='$username' and user_status like '%$usergroup%' and password='$pword'";

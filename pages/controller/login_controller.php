@@ -1,4 +1,4 @@
-<?php session_start(); ?> <?php 
+<?php session_start(); 
 
 
 //include 'db_config.php';
@@ -15,9 +15,9 @@ if ($_POST['username']) {
 
 
         if (!$obj->login($usergroup, $username, $password)) {
-            echo "$username";
-            echo "$password";
-            echo "Error getting users..like der";
+            // echo "$username";
+            // echo "$password";
+            // echo "Error getting users..like der";
 
         } else {
 
@@ -32,7 +32,7 @@ if ($_POST['username']) {
             if ($count_rows == 0 || $count_rows > 1) {
                 
          $message = "Incorrect Username or Password";
-echo "<script type='text/javascript'>alert('$message');</script>";
+//echo "<script type='text/javascript'>alert('$message');</script>";
                        header("location:../../index.php");
             }
 
@@ -40,7 +40,7 @@ echo "<script type='text/javascript'>alert('$message');</script>";
                 if ($usergroup == 'applicant') {
                     if ($is_applicant == 0) {
          $message = "Incorrect Username or Password";
-echo "<script type='text/javascript'>alert('$message');</script>";
+//echo "<script type='text/javascript'>alert('$message');</script>";
                                 header("location:../../index.php");
                     } else {
                         $_SESSION["user_id"] = $userId;
@@ -60,7 +60,7 @@ echo "<script type='text/javascript'>alert('$message');</script>";
         }
     } else {
          $message = "Incorrect Username or Password";
-echo "<script type='text/javascript'>alert('$message');</script>";
+//echo "<script type='text/javascript'>alert('$message');</script>";
         header("location:../../index.php");
     }
 }
